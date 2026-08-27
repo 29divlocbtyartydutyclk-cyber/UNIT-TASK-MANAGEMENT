@@ -25,3 +25,7 @@ export function formatDayHeading(date: Date): string {
 export function formatShortDate(date: Date): string {
   return format(date, "d MMM yyyy");
 }
+
+export function formatHeaderDate(date: Date): string {
+  return format(date, "EEEE, d MMMM yyyy");
+}

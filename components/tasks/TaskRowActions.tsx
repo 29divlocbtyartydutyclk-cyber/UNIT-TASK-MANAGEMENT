@@ -4,16 +4,17 @@ import { useState, useTransition } from "react";
 import type { Task } from "@prisma/client";
 import { TaskFormDialog } from "@/components/tasks/TaskFormDialog";
 import { TaskForm } from "@/components/tasks/TaskForm";
+import { StatusSelect } from "@/components/tasks/StatusSelect";
 import { deleteTask, updateTaskStatus } from "@/app/actions/tasks";
-import type { DisplayStatus } from "@/lib/constants";
+import type { Status } from "@/lib/constants";
 
-export function TaskRowActions({ task, displayStatus }: { task: Task; displayStatus: DisplayStatus }) {
+export function TaskRowActions({ task }: { task: Task }) {
   const [editOpen, setEditOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
 
-  function handleComplete() {
+  function handleStatusChange(status: Status) {
     startTransition(async () => {
-      await updateTaskStatus(task.id, "Completed");
+      await updateTaskStatus(task.id, status);
     });
   }
 
@@ -26,19 +27,10 @@ export function TaskRowActions({ task, displayStatus }: { task: Task; displaySta
 
   return (
     <div className="flex flex-wrap items-center gap-3">
+      <StatusSelect value={task.status} onChange={handleStatusChange} disabled={isPending} />
       <button type="button" onClick={() => setEditOpen(true)} className="text-xs font-medium text-combat-700 hover:underline">
         Edit
       </button>
-      {displayStatus !== "Completed" && (
-        <button
-          type="button"
-          onClick={handleComplete}
-          disabled={isPending}
-          className="text-xs font-medium text-combat-700 hover:underline disabled:opacity-50"
-        >
-          Complete
-        </button>
-      )}
       <button
         type="button"
         onClick={handleDelete}

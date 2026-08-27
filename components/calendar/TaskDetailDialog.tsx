@@ -7,10 +7,11 @@ import { TaskForm } from "@/components/tasks/TaskForm";
 import { CategoryBadge } from "@/components/tasks/CategoryBadge";
 import { StatusBadge } from "@/components/tasks/StatusBadge";
 import { PriorityBadge } from "@/components/tasks/PriorityBadge";
+import { StatusSelect } from "@/components/tasks/StatusSelect";
 import { updateTaskStatus } from "@/app/actions/tasks";
 import { getDisplayStatus } from "@/lib/utils/task-status";
 import { formatShortDate } from "@/lib/utils/date";
-import type { Category, Priority } from "@/lib/constants";
+import type { Category, Priority, Status } from "@/lib/constants";
 
 function Field({ label, value }: { label: string; value: string }) {
   return (
@@ -34,9 +35,9 @@ export function TaskDetailDialog({ task, onClose }: { task: Task; onClose: () =>
     );
   }
 
-  async function handleComplete() {
+  async function handleStatusChange(status: Status) {
     setPending(true);
-    await updateTaskStatus(task.id, "Completed");
+    await updateTaskStatus(task.id, status);
     setPending(false);
     onClose();
   }
@@ -56,7 +57,8 @@ export function TaskDetailDialog({ task, onClose }: { task: Task; onClose: () =>
           <Field label="Responsible Person" value={task.responsiblePerson || "—"} />
         </div>
         {task.remarks && <Field label="Remarks" value={task.remarks} />}
-        <div className="flex justify-end gap-2 pt-2">
+        <div className="flex items-center justify-between gap-2 pt-2">
+          <StatusSelect value={task.status} onChange={handleStatusChange} disabled={pending} />
           <button
             type="button"
             onClick={() => setEditing(true)}
@@ -64,16 +66,6 @@ export function TaskDetailDialog({ task, onClose }: { task: Task; onClose: () =>
           >
             Edit
           </button>
-          {displayStatus !== "Completed" && (
-            <button
-              type="button"
-              onClick={handleComplete}
-              disabled={pending}
-              className="rounded-md bg-combat-600 px-3 py-1.5 text-sm font-semibold text-white hover:bg-combat-700 disabled:opacity-50"
-            >
-              {pending ? "Saving..." : "Mark Complete"}
-            </button>
-          )}
         </div>
       </div>
     </TaskFormDialog>

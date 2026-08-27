@@ -44,7 +44,7 @@ export function TaskListTable({ tasks }: { tasks: Task[] }) {
                 <StatusBadge status={displayStatus} />
               </td>
               <td className="py-3 pr-4">
-                <TaskRowActions task={task} displayStatus={displayStatus} />
+                <TaskRowActions task={task} />
               </td>
             </tr>
           );

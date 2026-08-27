@@ -29,7 +29,7 @@ export function TaskCard({ task }: { task: Task }) {
       </div>
       {task.responsiblePerson && <p className="mt-2 text-sm text-sand-600">Responsible: {task.responsiblePerson}</p>}
       <div className="mt-3 border-t border-sand-100 pt-3">
-        <TaskRowActions task={task} displayStatus={displayStatus} />
+        <TaskRowActions task={task} />
       </div>
     </div>
   );

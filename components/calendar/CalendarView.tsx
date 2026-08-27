@@ -21,21 +21,30 @@ import { TaskFormDialog } from "@/components/tasks/TaskFormDialog";
 import { TaskForm } from "@/components/tasks/TaskForm";
 import { TaskDetailDialog } from "@/components/calendar/TaskDetailDialog";
 
-const WEEKDAY_LABELS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const MONDAY_FIRST_LABELS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const SUNDAY_FIRST_LABELS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 function parseMonthParam(param: string): Date {
   const [year, month] = param.split("-").map(Number);
   return new Date(year, month - 1, 1);
 }
 
-export function CalendarView({ tasks, monthParam }: { tasks: Task[]; monthParam: string }) {
+export function CalendarView({
+  tasks,
+  monthParam,
+  weekStartsOn = 1,
+}: {
+  tasks: Task[];
+  monthParam: string;
+  weekStartsOn?: 0 | 1;
+}) {
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
   const [createDate, setCreateDate] = useState<string | null>(null);
 
   const monthStart = startOfMonth(parseMonthParam(monthParam));
   const monthEnd = endOfMonth(monthStart);
-  const gridStart = startOfWeek(monthStart, { weekStartsOn: 1 });
-  const gridEnd = endOfWeek(monthEnd, { weekStartsOn: 1 });
+  const gridStart = startOfWeek(monthStart, { weekStartsOn });
+  const gridEnd = endOfWeek(monthEnd, { weekStartsOn });
   const days = eachDayOfInterval({ start: gridStart, end: gridEnd });
 
   const tasksByDay = new Map<string, Task[]>();
@@ -47,6 +56,7 @@ export function CalendarView({ tasks, monthParam }: { tasks: Task[]; monthParam:
 
   const prevMonthParam = format(subMonths(monthStart, 1), "yyyy-MM");
   const nextMonthParam = format(addMonths(monthStart, 1), "yyyy-MM");
+  const weekdayLabels = weekStartsOn === 0 ? SUNDAY_FIRST_LABELS : MONDAY_FIRST_LABELS;
 
   return (
     <div>
@@ -70,7 +80,7 @@ export function CalendarView({ tasks, monthParam }: { tasks: Task[]; monthParam:
       </div>
 
       <div className="mt-4 grid grid-cols-7 gap-px overflow-hidden rounded-lg border border-sand-200 bg-sand-200 text-xs">
-        {WEEKDAY_LABELS.map((d) => (
+        {weekdayLabels.map((d) => (
           <div key={d} className="bg-sand-100 px-1 py-1.5 text-center font-semibold text-sand-600 sm:px-2">
             {d}
           </div>

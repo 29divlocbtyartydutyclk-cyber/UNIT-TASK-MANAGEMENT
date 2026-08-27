@@ -10,6 +10,12 @@ export type Priority = (typeof PRIORITIES)[number];
 export const STATUSES = ["Pending", "In Progress", "Completed"] as const;
 export type Status = (typeof STATUSES)[number];
 
+export const REMINDER_PREFERENCES = ["None", "Same Day", "1 Day Before", "2 Days Before"] as const;
+export type ReminderPreference = (typeof REMINDER_PREFERENCES)[number];
+
+export const WEEK_START_OPTIONS = ["Monday", "Sunday"] as const;
+export type WeekStart = (typeof WEEK_START_OPTIONS)[number];
+
 export type DisplayStatus = Status | "Overdue";
 
 export const CATEGORY_COLORS: Record<Category, { bg: string; text: string; border: string; dot: string }> = {

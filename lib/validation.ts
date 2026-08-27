@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { parse as parseDate } from "date-fns";
-import { BRANCHES, CATEGORIES, PRIORITIES } from "@/lib/constants";
+import { BRANCHES, CATEGORIES, PRIORITIES, REMINDER_PREFERENCES, WEEK_START_OPTIONS } from "@/lib/constants";
 
 const optionalText = z
   .string()
@@ -23,3 +23,11 @@ export const taskSchema = z.object({
 });
 
 export type TaskInput = z.infer<typeof taskSchema>;
+
+export const settingsSchema = z.object({
+  unitName: z.string().trim().min(1, "Unit name is required"),
+  defaultReminder: z.enum(REMINDER_PREFERENCES),
+  weekStartsOn: z.enum(WEEK_START_OPTIONS),
+});
+
+export type SettingsInput = z.infer<typeof settingsSchema>;

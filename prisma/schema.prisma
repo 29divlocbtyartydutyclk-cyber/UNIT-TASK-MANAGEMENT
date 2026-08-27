@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Task {
+  id                String   @id @default(cuid())
+  title             String
+  date              DateTime
+  time              String?
+  branch            String
+  category          String
+  responsiblePerson String?
+  priority          String   @default("Normal")
+  status            String   @default("Pending")
+  remarks           String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([date])
+  @@index([status])
+  @@index([branch])
+  @@index([category])
+}
+
+model Settings {
+  id              Int      @id @default(1)
+  unitName        String   @default("Unit")
+  defaultReminder String   @default("None")
+  weekStartsOn    String   @default("Monday")
+  updatedAt       DateTime @updatedAt
+}

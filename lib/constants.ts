@@ -1,6 +1,25 @@
 export const BRANCHES = ["A Branch", "Q Branch", "G Branch"] as const;
 export type Branch = (typeof BRANCHES)[number];
 
+export const BRANCH_SHORT: Record<Branch, string> = {
+  "A Branch": "A",
+  "Q Branch": "Q",
+  "G Branch": "G",
+};
+
+export function parseBranches(branches: string): Branch[] {
+  return branches
+    .split(",")
+    .map((b) => b.trim())
+    .filter((b): b is Branch => BRANCHES.includes(b as Branch));
+}
+
+export function formatBranches(branches: string): string {
+  return parseBranches(branches)
+    .map((b) => BRANCH_SHORT[b])
+    .join(", ");
+}
+
 export const CATEGORIES = ["Training", "Sports", "Administrative", "Other"] as const;
 export type Category = (typeof CATEGORIES)[number];
 

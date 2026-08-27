@@ -1,9 +1,17 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { format } from "date-fns";
 import type { Task } from "@prisma/client";
-import { BRANCHES, CATEGORIES, PRIORITIES, type Branch, type Category, type Priority } from "@/lib/constants";
+import {
+  BRANCHES,
+  CATEGORIES,
+  PRIORITIES,
+  parseBranches,
+  type Branch,
+  type Category,
+  type Priority,
+} from "@/lib/constants";
+import { formatDDMMYYYY, maskDateInput } from "@/lib/utils/date";
 import { createTask, updateTask } from "@/app/actions/tasks";
 
 const inputClass =
@@ -19,11 +27,10 @@ interface TaskFormProps {
 
 export function TaskForm({ mode, task, defaultDate, onSuccess }: TaskFormProps) {
   const [title, setTitle] = useState(task?.title ?? "");
-  const [date, setDate] = useState(
-    task ? format(task.date, "yyyy-MM-dd") : defaultDate ?? format(new Date(), "yyyy-MM-dd")
-  );
+  const [date, setDate] = useState(task ? formatDDMMYYYY(task.date) : defaultDate ?? formatDDMMYYYY(new Date()));
+  const [endDate, setEndDate] = useState(task?.endDate ? formatDDMMYYYY(task.endDate) : "");
   const [time, setTime] = useState(task?.time ?? "");
-  const [branch, setBranch] = useState<Branch | "">((task?.branch as Branch) ?? "");
+  const [branches, setBranches] = useState<Branch[]>(task ? parseBranches(task.branches) : []);
   const [category, setCategory] = useState<Category | "">((task?.category as Category) ?? "");
   const [responsiblePerson, setResponsiblePerson] = useState(task?.responsiblePerson ?? "");
   const [priority, setPriority] = useState<Priority>((task?.priority as Priority) ?? "Normal");
@@ -31,11 +38,19 @@ export function TaskForm({ mode, task, defaultDate, onSuccess }: TaskFormProps) 
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
+  function toggleBranch(b: Branch) {
+    setBranches((prev) => (prev.includes(b) ? prev.filter((x) => x !== b) : [...prev, b]));
+  }
+
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setError(null);
+    if (branches.length === 0) {
+      setError("Select at least one branch");
+      return;
+    }
     setSubmitting(true);
-    const data = { title, date, time, branch, category, responsiblePerson, priority, remarks };
+    const data = { title, date, endDate, time, branches, category, responsiblePerson, priority, remarks };
     const result = mode === "create" ? await createTask(data) : await updateTask(task!.id, data);
     setSubmitting(false);
     if (!result.success) {
@@ -60,10 +75,28 @@ export function TaskForm({ mode, task, defaultDate, onSuccess }: TaskFormProps) 
         />
       </div>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <div>
           <label className={labelClass}>Date *</label>
-          <input required type="date" value={date} onChange={(e) => setDate(e.target.value)} className={inputClass} />
+          <input
+            required
+            inputMode="numeric"
+            placeholder="DD/MM/YYYY"
+            value={date}
+            onChange={(e) => setDate(maskDateInput(e.target.value))}
+            className={inputClass}
+          />
+        </div>
+        <div>
+          <label className={labelClass}>End Date</label>
+          <input
+            inputMode="numeric"
+            placeholder="DD/MM/YYYY"
+            value={endDate}
+            onChange={(e) => setEndDate(maskDateInput(e.target.value))}
+            className={inputClass}
+          />
+          <p className="mt-1 text-xs text-sand-500">Leave blank for a single-day task</p>
         </div>
         <div>
           <label className={labelClass}>Time</label>
@@ -73,22 +106,20 @@ export function TaskForm({ mode, task, defaultDate, onSuccess }: TaskFormProps) 
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
-          <label className={labelClass}>Branch *</label>
-          <select
-            required
-            value={branch}
-            onChange={(e) => setBranch(e.target.value as Branch)}
-            className={inputClass}
-          >
-            <option value="" disabled>
-              Select branch
-            </option>
+          <label className={labelClass}>Branch * (select one or more)</label>
+          <div className="mt-1 flex flex-wrap gap-3 rounded-md border border-sand-300 px-3 py-2">
             {BRANCHES.map((b) => (
-              <option key={b} value={b}>
+              <label key={b} className="flex items-center gap-1.5 text-sm text-sand-700">
+                <input
+                  type="checkbox"
+                  checked={branches.includes(b)}
+                  onChange={() => toggleBranch(b)}
+                  className="h-4 w-4 rounded border-sand-400 text-combat-600 focus:ring-combat-500"
+                />
                 {b}
-              </option>
+              </label>
             ))}
-          </select>
+          </div>
         </div>
         <div>
           <label className={labelClass}>Category *</label>

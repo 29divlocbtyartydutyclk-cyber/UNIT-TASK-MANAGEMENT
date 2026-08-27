@@ -16,10 +16,11 @@ import {
 } from "date-fns";
 import type { Task } from "@prisma/client";
 import { CATEGORY_COLORS, type Category } from "@/lib/constants";
+import { formatDDMMYYYY } from "@/lib/utils/date";
 import { AddTaskButton } from "@/components/tasks/AddTaskButton";
 import { TaskFormDialog } from "@/components/tasks/TaskFormDialog";
 import { TaskForm } from "@/components/tasks/TaskForm";
-import { TaskDetailDialog } from "@/components/calendar/TaskDetailDialog";
+import { TaskDetailDialog } from "@/components/tasks/TaskDetailDialog";
 
 const MONDAY_FIRST_LABELS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const SUNDAY_FIRST_LABELS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -49,9 +50,12 @@ export function CalendarView({
 
   const tasksByDay = new Map<string, Task[]>();
   for (const t of tasks) {
-    const key = t.date.toDateString();
-    if (!tasksByDay.has(key)) tasksByDay.set(key, []);
-    tasksByDay.get(key)!.push(t);
+    const range = eachDayOfInterval({ start: t.date, end: t.endDate ?? t.date });
+    for (const d of range) {
+      const key = d.toDateString();
+      if (!tasksByDay.has(key)) tasksByDay.set(key, []);
+      tasksByDay.get(key)!.push(t);
+    }
   }
 
   const prevMonthParam = format(subMonths(monthStart, 1), "yyyy-MM");
@@ -94,7 +98,7 @@ export function CalendarView({
           return (
             <div
               key={key}
-              onClick={() => setCreateDate(format(day, "yyyy-MM-dd"))}
+              onClick={() => setCreateDate(formatDDMMYYYY(day))}
               className={`min-h-[92px] cursor-pointer bg-white p-1.5 align-top hover:bg-sand-50 sm:min-h-[110px] ${
                 inMonth ? "" : "opacity-40"
               }`}
@@ -121,7 +125,7 @@ export function CalendarView({
                         e.stopPropagation();
                         setSelectedTask(task);
                       }}
-                      className={`block w-full truncate rounded border-l-2 ${c.border} ${c.bg} ${c.text} px-1 py-0.5 text-left text-[10px] font-medium`}
+                      className={`block w-full truncate rounded border-l-2 ${c.border} ${c.bg} ${c.text} px-1 py-0.5 text-left text-[10px] font-medium uppercase`}
                     >
                       {task.title}
                     </button>

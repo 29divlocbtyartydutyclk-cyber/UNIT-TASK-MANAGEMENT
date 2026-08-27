@@ -1,7 +1,9 @@
 import { getAllTasks } from "@/lib/data/tasks";
 import { getDisplayStatus } from "@/lib/utils/task-status";
-import { isToday, nextNDays, today, formatDayHeading, formatHeaderDate } from "@/lib/utils/date";
+import { isTaskActiveToday, nextNDays, today, formatDayHeading, formatHeaderDate } from "@/lib/utils/date";
+import { parseBranches } from "@/lib/constants";
 import { SummaryTile } from "@/components/dashboard/SummaryTile";
+import { TodaysTasksBlock } from "@/components/dashboard/TodaysTasksBlock";
 import { TaskCard } from "@/components/tasks/TaskCard";
 import type { Task } from "@prisma/client";
 
@@ -18,13 +20,14 @@ function TaskCardGrid({ tasks }: { tasks: Task[] }) {
 export default async function DashboardPage() {
   const tasks = await getAllTasks();
 
-  const todaysTasks = tasks.filter((t) => isToday(t.date));
+  const todaysTasks = tasks.filter(isTaskActiveToday);
   const overdueTasks = tasks.filter((t) => getDisplayStatus(t) === "Overdue");
   const pendingCount = tasks.filter((t) => getDisplayStatus(t) === "Pending").length;
+  const inProgressCount = tasks.filter((t) => getDisplayStatus(t) === "In Progress").length;
   const completedCount = tasks.filter((t) => t.status === "Completed").length;
-  const aBranchCount = tasks.filter((t) => t.branch === "A Branch").length;
-  const qBranchCount = tasks.filter((t) => t.branch === "Q Branch").length;
-  const gBranchCount = tasks.filter((t) => t.branch === "G Branch").length;
+  const aBranchCount = tasks.filter((t) => parseBranches(t.branches).includes("A Branch")).length;
+  const qBranchCount = tasks.filter((t) => parseBranches(t.branches).includes("Q Branch")).length;
+  const gBranchCount = tasks.filter((t) => parseBranches(t.branches).includes("G Branch")).length;
 
   const todayStart = today();
   const { end } = nextNDays(7);
@@ -43,29 +46,36 @@ export default async function DashboardPage() {
       <h1 className="text-2xl font-bold tracking-tight text-combat-800">UNIT DAILY MANAGEMENT DASHBOARD</h1>
       <p className="mt-1 text-sm text-sand-500">{formatHeaderDate(new Date())}</p>
 
-      <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-7">
-        <SummaryTile label="Today's Total" value={todaysTasks.length} />
-        <SummaryTile label="A Branch" value={aBranchCount} />
-        <SummaryTile label="Q Branch" value={qBranchCount} />
-        <SummaryTile label="G Branch" value={gBranchCount} />
-        <SummaryTile label="Pending" value={pendingCount} />
-        <SummaryTile label="Completed" value={completedCount} accent="text-combat-600" />
-        <SummaryTile label="Overdue" value={overdueTasks.length} accent="text-red-600" />
+      <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8">
+        <SummaryTile label="Today's Total" value={todaysTasks.length} barColor="border-l-combat-500" />
+        <SummaryTile label="A Branch" value={aBranchCount} barColor="border-l-blue-500" />
+        <SummaryTile label="Q Branch" value={qBranchCount} barColor="border-l-purple-500" />
+        <SummaryTile label="G Branch" value={gBranchCount} barColor="border-l-orange-500" />
+        <SummaryTile label="Pending" value={pendingCount} barColor="border-l-slate-400" />
+        <SummaryTile
+          label="In Progress"
+          value={inProgressCount}
+          accent="text-amber-600"
+          barColor="border-l-amber-500"
+        />
+        <SummaryTile
+          label="Completed"
+          value={completedCount}
+          accent="text-combat-600"
+          barColor="border-l-combat-600"
+        />
+        <SummaryTile label="Overdue" value={overdueTasks.length} accent="text-red-600" barColor="border-l-red-500" />
       </div>
 
       <section className="mt-8">
-        <h2 className="text-lg font-semibold text-sand-800">Today&apos;s Tasks</h2>
-        {todaysTasks.length === 0 ? (
-          <p className="mt-2 text-sm text-sand-500">No tasks scheduled for today.</p>
-        ) : (
-          <div className="mt-3">
-            <TaskCardGrid tasks={todaysTasks} />
-          </div>
-        )}
+        <h2 className="text-lg font-semibold uppercase text-sand-800">Today&apos;s Tasks</h2>
+        <div className="mt-3">
+          <TodaysTasksBlock tasks={todaysTasks} />
+        </div>
       </section>
 
       <section className="mt-8">
-        <h2 className="text-lg font-semibold text-sand-800">Upcoming Tasks (Next 7 Days)</h2>
+        <h2 className="text-lg font-semibold uppercase text-sand-800">Upcoming Tasks (Next 7 Days)</h2>
         {upcomingGroups.length === 0 ? (
           <p className="mt-2 text-sm text-sand-500">No upcoming tasks in the next 7 days.</p>
         ) : (
@@ -83,7 +93,7 @@ export default async function DashboardPage() {
       </section>
 
       <section className="mt-8">
-        <h2 className="text-lg font-semibold text-red-700">Overdue Tasks</h2>
+        <h2 className="text-lg font-semibold uppercase text-red-700">Overdue Tasks</h2>
         {overdueTasks.length === 0 ? (
           <p className="mt-2 text-sm text-sand-500">No overdue tasks.</p>
         ) : (

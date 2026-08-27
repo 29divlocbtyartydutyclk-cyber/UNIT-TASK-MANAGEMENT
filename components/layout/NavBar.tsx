@@ -9,7 +9,7 @@ export function NavBar() {
   const pathname = usePathname();
 
   return (
-    <header className="hidden md:flex items-center justify-between border-b border-sand-200 bg-combat-800 px-6 py-3 text-sand-50">
+    <header className="bg-camo hidden items-center justify-between border-b border-combat-900 px-6 py-3 text-sand-50 [text-shadow:0_1px_2px_rgba(0,0,0,0.6)] md:flex">
       <Link href="/dashboard" className="text-sm font-semibold tracking-wide uppercase">
         Unit Task Management
       </Link>

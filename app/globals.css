@@ -41,3 +41,14 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.bg-camo {
+  background-color: #2b3b1d;
+  background-image:
+    radial-gradient(circle at 12% 20%, #1d2814 0%, #1d2814 20%, transparent 21%),
+    radial-gradient(circle at 40% 75%, #394e26 0%, #394e26 24%, transparent 25%),
+    radial-gradient(circle at 68% 15%, #5f7f3b 0%, #5f7f3b 14%, transparent 15%),
+    radial-gradient(circle at 85% 60%, #4a6530 0%, #4a6530 20%, transparent 21%),
+    radial-gradient(circle at 25% 95%, #394e26 0%, #394e26 16%, transparent 17%);
+  background-size: 200px 200px;
+}

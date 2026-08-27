@@ -9,7 +9,7 @@ export function MobileTabBar() {
   const pathname = usePathname();
 
   return (
-    <nav className="md:hidden fixed bottom-0 inset-x-0 z-30 flex border-t border-sand-200 bg-combat-800">
+    <nav className="bg-camo fixed inset-x-0 bottom-0 z-30 flex border-t border-combat-900 [text-shadow:0_1px_2px_rgba(0,0,0,0.6)] md:hidden">
       {NAV_ITEMS.map((item) => {
         const active = pathname === item.href || pathname?.startsWith(item.href + "/");
         const Icon = item.icon;

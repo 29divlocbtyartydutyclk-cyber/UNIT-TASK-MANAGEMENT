@@ -1,6 +1,6 @@
 import type { Task } from "@prisma/client";
 import { getDisplayStatus } from "@/lib/utils/task-status";
-import { BRANCHES, CATEGORIES, STATUSES, type Branch, type Category, type DisplayStatus } from "@/lib/constants";
+import { BRANCHES, CATEGORIES, STATUSES, parseBranches, type Branch, type Category, type DisplayStatus } from "@/lib/constants";
 
 export interface TaskFilterValues {
   branch: Branch | "All";
@@ -29,7 +29,7 @@ export function filterTasks(tasks: Task[], filters: TaskFilterValues): Task[] {
   const search = filters.search.trim().toLowerCase();
 
   return tasks.filter((task) => {
-    if (filters.branch !== "All" && task.branch !== filters.branch) return false;
+    if (filters.branch !== "All" && !parseBranches(task.branches).includes(filters.branch)) return false;
     if (filters.category !== "All" && task.category !== filters.category) return false;
     if (filters.status !== "All" && getDisplayStatus(task) !== filters.status) return false;
     if (search) {

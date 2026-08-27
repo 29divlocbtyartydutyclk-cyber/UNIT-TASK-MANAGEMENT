@@ -8,22 +8,22 @@ datasource db {
 }
 
 model Task {
-  id                String   @id @default(cuid())
+  id                String    @id @default(cuid())
   title             String
   date              DateTime
+  endDate           DateTime?
   time              String?
-  branch            String
+  branches          String    @map("branch")
   category          String
   responsiblePerson String?
-  priority          String   @default("Normal")
-  status            String   @default("Pending")
+  priority          String    @default("Normal")
+  status            String    @default("Pending")
   remarks           String?
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
 
   @@index([date])
   @@index([status])
-  @@index([branch])
   @@index([category])
 }
 

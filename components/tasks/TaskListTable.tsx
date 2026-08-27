@@ -4,8 +4,8 @@ import { StatusBadge } from "@/components/tasks/StatusBadge";
 import { PriorityBadge } from "@/components/tasks/PriorityBadge";
 import { TaskRowActions } from "@/components/tasks/TaskRowActions";
 import { getDisplayStatus } from "@/lib/utils/task-status";
-import { formatShortDate } from "@/lib/utils/date";
-import type { Category, Priority } from "@/lib/constants";
+import { formatDateRange } from "@/lib/utils/date";
+import { formatBranches, type Category, type Priority } from "@/lib/constants";
 
 export function TaskListTable({ tasks }: { tasks: Task[] }) {
   return (
@@ -28,11 +28,11 @@ export function TaskListTable({ tasks }: { tasks: Task[] }) {
           return (
             <tr key={task.id} className="border-b border-sand-100 align-top">
               <td className="py-3 pr-4 whitespace-nowrap">
-                {formatShortDate(task.date)}
+                {formatDateRange(task.date, task.endDate)}
                 {task.time ? ` · ${task.time}` : ""}
               </td>
-              <td className="py-3 pr-4 font-medium text-sand-900">{task.title}</td>
-              <td className="py-3 pr-4 whitespace-nowrap">{task.branch}</td>
+              <td className="py-3 pr-4 font-medium uppercase text-sand-900">{task.title}</td>
+              <td className="py-3 pr-4 whitespace-nowrap">{formatBranches(task.branches)}</td>
               <td className="py-3 pr-4">
                 <CategoryBadge category={task.category as Category} />
               </td>

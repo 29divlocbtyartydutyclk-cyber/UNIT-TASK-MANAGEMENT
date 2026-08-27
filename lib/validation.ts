@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { parse as parseDate } from "date-fns";
 import { BRANCHES, CATEGORIES, PRIORITIES, REMINDER_PREFERENCES, WEEK_START_OPTIONS } from "@/lib/constants";
+import { parseDDMMYYYY } from "@/lib/utils/date";
 
 const optionalText = z
   .string()
@@ -8,19 +8,37 @@ const optionalText = z
   .optional()
   .transform((v) => (v ? v : undefined));
 
-export const taskSchema = z.object({
-  title: z.string().trim().min(1, "Task name is required"),
-  date: z
-    .string()
-    .regex(/^\d{4}-\d{2}-\d{2}$/, "Date is required")
-    .transform((val) => parseDate(val, "yyyy-MM-dd", new Date())),
-  time: optionalText,
-  branch: z.enum(BRANCHES, { message: "Branch is required" }),
-  category: z.enum(CATEGORIES, { message: "Category is required" }),
-  responsiblePerson: optionalText,
-  priority: z.enum(PRIORITIES).default("Normal"),
-  remarks: optionalText,
-});
+const DATE_PATTERN = /^\d{2}\/\d{2}\/\d{4}$/;
+
+const dateField = z
+  .string()
+  .regex(DATE_PATTERN, "Date is required (DD/MM/YYYY)")
+  .transform((val) => parseDDMMYYYY(val));
+
+const endDateField = z
+  .string()
+  .trim()
+  .optional()
+  .default("")
+  .refine((v) => v === "" || DATE_PATTERN.test(v), { message: "End date must be DD/MM/YYYY" })
+  .transform((v) => (v === "" ? null : parseDDMMYYYY(v)));
+
+export const taskSchema = z
+  .object({
+    title: z.string().trim().min(1, "Task name is required"),
+    date: dateField,
+    endDate: endDateField,
+    time: optionalText,
+    branches: z.array(z.enum(BRANCHES)).min(1, "Select at least one branch").transform((arr) => arr.join(",")),
+    category: z.enum(CATEGORIES, { message: "Category is required" }),
+    responsiblePerson: optionalText,
+    priority: z.enum(PRIORITIES).default("Normal"),
+    remarks: optionalText,
+  })
+  .refine((data) => !data.endDate || data.endDate >= data.date, {
+    message: "End date must be on or after the start date",
+    path: ["endDate"],
+  });
 
 export type TaskInput = z.infer<typeof taskSchema>;
 

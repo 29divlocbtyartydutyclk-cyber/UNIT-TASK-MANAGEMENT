@@ -10,8 +10,8 @@ import { PriorityBadge } from "@/components/tasks/PriorityBadge";
 import { StatusSelect } from "@/components/tasks/StatusSelect";
 import { updateTaskStatus } from "@/app/actions/tasks";
 import { getDisplayStatus } from "@/lib/utils/task-status";
-import { formatShortDate } from "@/lib/utils/date";
-import type { Category, Priority, Status } from "@/lib/constants";
+import { formatDateRange } from "@/lib/utils/date";
+import { formatBranches, type Category, type Priority, type Status } from "@/lib/constants";
 
 function Field({ label, value }: { label: string; value: string }) {
   return (
@@ -43,7 +43,7 @@ export function TaskDetailDialog({ task, onClose }: { task: Task; onClose: () =>
   }
 
   return (
-    <TaskFormDialog open onClose={onClose} title={task.title}>
+    <TaskFormDialog open onClose={onClose} title={task.title.toUpperCase()}>
       <div className="space-y-4 text-sm">
         <div className="flex flex-wrap items-center gap-2">
           <CategoryBadge category={task.category as Category} />
@@ -51,9 +51,9 @@ export function TaskDetailDialog({ task, onClose }: { task: Task; onClose: () =>
           <StatusBadge status={displayStatus} />
         </div>
         <div className="grid grid-cols-2 gap-x-4 gap-y-3">
-          <Field label="Date" value={formatShortDate(task.date)} />
+          <Field label="Date" value={formatDateRange(task.date, task.endDate)} />
           <Field label="Time" value={task.time || "—"} />
-          <Field label="Branch" value={task.branch} />
+          <Field label="Branch" value={formatBranches(task.branches) || "—"} />
           <Field label="Responsible Person" value={task.responsiblePerson || "—"} />
         </div>
         {task.remarks && <Field label="Remarks" value={task.remarks} />}

@@ -123,12 +123,8 @@ export function CalendarView({
                 key={key}
                 onClick={canEdit ? () => setCreateDate(formatDDMMYYYY(day)) : undefined}
                 className={`relative min-h-[92px] p-1.5 align-top transition-colors sm:min-h-[112px] ${
-                  isToday
-                    ? "bg-combat-50 ring-2 ring-inset ring-combat-600"
-                    : inMonth
-                      ? "bg-white"
-                      : "bg-sand-50"
-                } ${canEdit ? "cursor-pointer hover:bg-combat-50/60" : ""}`}
+                  isToday ? "bg-combat-200 ring-2 ring-inset ring-combat-600" : "bg-combat-50"
+                } ${canEdit ? "cursor-pointer hover:bg-combat-100" : ""}`}
               >
                 <div className="mb-1 flex items-center justify-between">
                   {isToday && (
@@ -141,8 +137,8 @@ export function CalendarView({
                       isToday
                         ? "bg-combat-600 text-white shadow-sm"
                         : inMonth
-                          ? "text-sand-700"
-                          : "text-sand-400"
+                          ? "text-combat-800"
+                          : "text-combat-400"
                     }`}
                   >
                     {format(day, "d")}

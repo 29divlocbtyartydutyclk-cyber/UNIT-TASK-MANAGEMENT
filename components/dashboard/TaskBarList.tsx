@@ -18,10 +18,12 @@ export function TaskBarList({
   tasks,
   emptyMessage = "No tasks found.",
   colorMode = "status",
+  maxHeightClass = "",
 }: {
   tasks: Task[];
   emptyMessage?: string;
   colorMode?: "status" | "neutral";
+  maxHeightClass?: string;
 }) {
   const [selected, setSelected] = useState<Task | null>(null);
 
@@ -30,7 +32,7 @@ export function TaskBarList({
   }
 
   return (
-    <div className="space-y-2 rounded-lg border border-sand-200 bg-white p-3">
+    <div className={`space-y-2 overflow-y-auto rounded-lg border border-sand-200 bg-white p-3 ${maxHeightClass}`}>
       {tasks.map((task) => {
         const displayStatus = getDisplayStatus(task);
         const colorClass =

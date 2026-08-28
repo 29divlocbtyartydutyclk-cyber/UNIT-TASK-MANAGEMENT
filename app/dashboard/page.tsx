@@ -59,7 +59,11 @@ export default async function DashboardPage() {
       <section className="mt-8">
         <h2 className="text-lg font-semibold uppercase text-sand-800">Today&apos;s Tasks</h2>
         <div className="mt-3">
-          <TaskBarList tasks={todaysTasks} emptyMessage="No tasks scheduled for today." />
+          <TaskBarList
+            tasks={todaysTasks}
+            emptyMessage="No tasks scheduled for today."
+            maxHeightClass="max-h-[320px]"
+          />
         </div>
       </section>
 
@@ -68,7 +72,7 @@ export default async function DashboardPage() {
         {upcomingGroups.length === 0 ? (
           <p className="mt-2 text-sm text-sand-500">No upcoming tasks in the next 7 days.</p>
         ) : (
-          <div className="mt-3 space-y-5">
+          <div className="mt-3 max-h-[640px] space-y-5 overflow-y-auto rounded-lg pr-1">
             {upcomingGroups.map((group) => (
               <div key={group.date.toDateString()}>
                 <h3 className="text-sm font-semibold tracking-wide text-sand-600">{formatDayHeading(group.date)}</h3>
@@ -84,7 +88,7 @@ export default async function DashboardPage() {
       <section className="mt-8">
         <h2 className="text-lg font-semibold uppercase text-red-700">Overdue Tasks</h2>
         <div className="mt-3">
-          <TaskBarList tasks={overdueTasks} emptyMessage="No overdue tasks." />
+          <TaskBarList tasks={overdueTasks} emptyMessage="No overdue tasks." maxHeightClass="max-h-[320px]" />
         </div>
       </section>
     </div>

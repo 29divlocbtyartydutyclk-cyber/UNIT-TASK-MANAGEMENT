@@ -36,6 +36,24 @@ export default function AccessPage() {
 
           <hr className="my-6 border-sand-200" />
 
+          <p className="text-xs font-semibold uppercase tracking-widest text-combat-600">Android app</p>
+          <p className="mt-2 text-sm text-sand-600">
+            Prefer a real installable app instead of a browser tab? Download it directly — no Play Store needed.
+          </p>
+          <a
+            href="/unit-tasks.apk"
+            download
+            className="mt-3 block rounded-md bg-combat-600 px-4 py-2 text-center text-sm font-semibold text-white hover:bg-combat-700"
+          >
+            Download Android App (.apk)
+          </a>
+          <p className="mt-2 text-xs text-sand-500">
+            Android will ask to confirm installing from this source the first time — tap <b>Install anyway</b> /{" "}
+            <b>Allow</b>. This is normal for apps not from the Play Store and is safe for this file.
+          </p>
+
+          <hr className="my-6 border-sand-200" />
+
           <p className="text-xs font-semibold uppercase tracking-widest text-combat-600">First-time setup</p>
           <ol className="mt-3 space-y-3">
             <li className="flex items-start gap-3 text-sm text-sand-900">

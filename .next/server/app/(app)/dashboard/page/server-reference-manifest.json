@@ -1,6 +1,6 @@
 {
   "node": {
-    "000138c41df5a9d28c9d337b91f087c041031a893e": {
+    "0064b5a613448403ff859d81b275770ddfb6b092ab": {
       "workers": {
         "app/(app)/dashboard/page": {
           "moduleId": 90066,
@@ -11,7 +11,7 @@
       "exportedName": "logout",
       "filename": "app/actions/auth.ts"
     },
-    "40c55e937cc2fa96ee05b50f2be395c868e6870cb0": {
+    "40efdced50663f54ee34ca0e01b3328b7394609fdc": {
       "workers": {
         "app/(app)/dashboard/page": {
           "moduleId": 90066,
@@ -22,7 +22,7 @@
       "exportedName": "createTask",
       "filename": "app/actions/tasks.ts"
     },
-    "60ddbcd4185b40647eab1a9dcfe13c0312a6eaee4a": {
+    "60e2fad9afc4f65639a623a1085253f12d4c4c7697": {
       "workers": {
         "app/(app)/dashboard/page": {
           "moduleId": 90066,
@@ -33,7 +33,7 @@
       "exportedName": "updateTask",
       "filename": "app/actions/tasks.ts"
     },
-    "6048c2f1576724c0f4c63a26ce011bdf5fa49adc25": {
+    "60fa3ba1cddd64b5e22723c952e0e592d1b394014f": {
       "workers": {
         "app/(app)/dashboard/page": {
           "moduleId": 90066,
@@ -44,7 +44,7 @@
       "exportedName": "updateTaskStatus",
       "filename": "app/actions/tasks.ts"
     },
-    "40edb6f8a893bc6be83899a50240fc1af87183301f": {
+    "40636408d40bdb1114972f38a131a46286ba9b1846": {
       "workers": {
         "app/(app)/dashboard/page": {
           "moduleId": 90066,
@@ -55,7 +55,7 @@
       "exportedName": "subscribeToPush",
       "filename": "app/actions/push.ts"
     },
-    "402e7ac3b98c86254ef2fa3320e9e133e803faf1c5": {
+    "40a70833677e164ced9d2cccf191c09a68f1876a5f": {
       "workers": {
         "app/(app)/dashboard/page": {
           "moduleId": 90066,

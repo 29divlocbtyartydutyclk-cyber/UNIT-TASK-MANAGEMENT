@@ -11,6 +11,7 @@ const PUBLIC_PATHS = [
   "/icon-512.png",
   "/qr-access.png",
   "/favicon.ico",
+  "/unit-tasks.apk",
 ];
 
 export async function proxy(request: NextRequest) {

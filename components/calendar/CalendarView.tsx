@@ -112,6 +112,8 @@ export function CalendarView({
               {d}
             </div>
           ))}
+        </div>
+        <div className="grid grid-cols-7 gap-1.5 bg-sand-100 p-1.5 text-xs sm:gap-2 sm:p-2">
           {days.map((day) => {
             const key = day.toDateString();
             const dayTasks = tasksByDay.get(key) ?? [];
@@ -122,9 +124,9 @@ export function CalendarView({
               <div
                 key={key}
                 onClick={canEdit ? () => setCreateDate(formatDDMMYYYY(day)) : undefined}
-                className={`relative min-h-[92px] p-1.5 align-top transition-colors sm:min-h-[112px] ${
+                className={`relative min-h-[92px] rounded-lg p-1.5 align-top shadow-sm transition-all sm:min-h-[112px] ${
                   isToday ? "bg-combat-200 ring-2 ring-inset ring-combat-600" : "bg-combat-50"
-                } ${canEdit ? "cursor-pointer hover:bg-combat-100" : ""}`}
+                } ${canEdit ? "cursor-pointer hover:-translate-y-0.5 hover:bg-combat-100 hover:shadow-md" : ""}`}
               >
                 <div className="mb-1 flex items-center justify-between">
                   {isToday && (

@@ -13,7 +13,8 @@ const DATE_PATTERN = /^\d{2}\/\d{2}\/\d{4}$/;
 const dateField = z
   .string()
   .regex(DATE_PATTERN, "Date is required (DD/MM/YYYY)")
-  .transform((val) => parseDDMMYYYY(val));
+  .transform((val) => parseDDMMYYYY(val))
+  .refine((date) => !isNaN(date.getTime()), { message: "Enter a valid date (DD/MM/YYYY)" });
 
 const endDateField = z
   .string()
@@ -21,7 +22,8 @@ const endDateField = z
   .optional()
   .default("")
   .refine((v) => v === "" || DATE_PATTERN.test(v), { message: "End date must be DD/MM/YYYY" })
-  .transform((v) => (v === "" ? null : parseDDMMYYYY(v)));
+  .transform((v) => (v === "" ? null : parseDDMMYYYY(v)))
+  .refine((date) => date === null || !isNaN(date.getTime()), { message: "Enter a valid end date (DD/MM/YYYY)" });
 
 export const taskSchema = z
   .object({

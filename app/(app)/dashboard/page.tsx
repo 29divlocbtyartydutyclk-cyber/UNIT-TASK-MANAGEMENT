@@ -1,3 +1,4 @@
+import { eachDayOfInterval } from "date-fns";
 import { getAllTasks } from "@/lib/data/tasks";
 import { getDisplayStatus } from "@/lib/utils/task-status";
 import { isTaskActiveToday, nextNDays, today, formatDayHeading, formatHeaderDate } from "@/lib/utils/date";
@@ -20,13 +21,17 @@ export default async function DashboardPage() {
 
   const todayStart = today();
   const { end } = nextNDays(7);
-  const upcomingTasks = tasks.filter((t) => t.date > todayStart && t.date <= end);
 
   const upcomingByDay = new Map<string, { date: Date; tasks: Task[] }>();
-  for (const t of upcomingTasks) {
-    const key = t.date.toDateString();
-    if (!upcomingByDay.has(key)) upcomingByDay.set(key, { date: t.date, tasks: [] });
-    upcomingByDay.get(key)!.tasks.push(t);
+  for (const t of tasks) {
+    const range = eachDayOfInterval({ start: t.date, end: t.endDate ?? t.date });
+    for (const d of range) {
+      if (d > todayStart && d <= end) {
+        const key = d.toDateString();
+        if (!upcomingByDay.has(key)) upcomingByDay.set(key, { date: d, tasks: [] });
+        upcomingByDay.get(key)!.tasks.push(t);
+      }
+    }
   }
   const upcomingGroups = [...upcomingByDay.values()].sort((a, b) => a.date.getTime() - b.date.getTime());
 

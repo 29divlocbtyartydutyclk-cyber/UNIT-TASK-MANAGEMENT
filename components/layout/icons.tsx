@@ -65,3 +65,19 @@ export function XIcon({ className }: { className?: string }) {
     </svg>
   );
 }
+
+export function ChevronLeftIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className={className}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15 18l-6-6 6-6" />
+    </svg>
+  );
+}
+
+export function ChevronRightIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className={className}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 18l6-6-6-6" />
+    </svg>
+  );
+}

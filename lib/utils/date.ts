@@ -47,20 +47,11 @@ export function isTaskActiveToday(task: { date: Date; endDate: Date | null }): b
   return isTaskActiveOn(task, new Date());
 }
 
-/** Parse a DD/MM/YYYY string (as produced by the date input mask) into a local Date at midnight. */
+/** Parse a DD/MM/YYYY string into a local Date at midnight. */
 export function parseDDMMYYYY(value: string): Date {
   return parseDate(value, "dd/MM/yyyy", new Date());
 }
 
 export function formatDDMMYYYY(date: Date): string {
   return format(date, "dd/MM/yyyy");
-}
-
-/** Auto-insert slashes as the user types digits into a DD/MM/YYYY field. */
-export function maskDateInput(raw: string): string {
-  const digits = raw.replace(/\D/g, "").slice(0, 8);
-  const day = digits.slice(0, 2);
-  const month = digits.slice(2, 4);
-  const year = digits.slice(4, 8);
-  return [day, month, year].filter(Boolean).join("/");
 }

@@ -11,8 +11,9 @@ import {
   type Category,
   type Priority,
 } from "@/lib/constants";
-import { formatDDMMYYYY, maskDateInput } from "@/lib/utils/date";
+import { formatDDMMYYYY } from "@/lib/utils/date";
 import { createTask, updateTask } from "@/app/actions/tasks";
+import { DatePicker } from "@/components/tasks/DatePicker";
 
 const inputClass =
   "mt-1 w-full rounded-md border border-sand-300 px-3 py-2 text-sm focus:border-combat-500 focus:outline-none focus:ring-1 focus:ring-combat-500";
@@ -45,6 +46,10 @@ export function TaskForm({ mode, task, defaultDate, onSuccess }: TaskFormProps) 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setError(null);
+    if (!date) {
+      setError("Date is required");
+      return;
+    }
     if (branches.length === 0) {
       setError("Select at least one branch");
       return;
@@ -78,24 +83,11 @@ export function TaskForm({ mode, task, defaultDate, onSuccess }: TaskFormProps) 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <div>
           <label className={labelClass}>Date *</label>
-          <input
-            required
-            inputMode="numeric"
-            placeholder="DD/MM/YYYY"
-            value={date}
-            onChange={(e) => setDate(maskDateInput(e.target.value))}
-            className={inputClass}
-          />
+          <DatePicker value={date} onChange={setDate} />
         </div>
         <div>
           <label className={labelClass}>End Date</label>
-          <input
-            inputMode="numeric"
-            placeholder="DD/MM/YYYY"
-            value={endDate}
-            onChange={(e) => setEndDate(maskDateInput(e.target.value))}
-            className={inputClass}
-          />
+          <DatePicker value={endDate} onChange={setEndDate} allowClear />
           <p className="mt-1 text-xs text-sand-500">Leave blank for a single-day task</p>
         </div>
         <div>

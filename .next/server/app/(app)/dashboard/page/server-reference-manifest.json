@@ -1,0 +1,49 @@
+{
+  "node": {
+    "006775af8f5054076c5b4b61b0bfa06bc1e3f76942": {
+      "workers": {
+        "app/(app)/dashboard/page": {
+          "moduleId": 44261,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "logout",
+      "filename": "app/actions/auth.ts"
+    },
+    "4010353a27d786ef212f3aeef94f4f96c91b403b5e": {
+      "workers": {
+        "app/(app)/dashboard/page": {
+          "moduleId": 44261,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "createTask",
+      "filename": "app/actions/tasks.ts"
+    },
+    "603af9c5fd58b5f8be596f854c8f6f191c4aa3f1c2": {
+      "workers": {
+        "app/(app)/dashboard/page": {
+          "moduleId": 44261,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "updateTask",
+      "filename": "app/actions/tasks.ts"
+    },
+    "6032eac585e6d6e0577cd7111c8a12b395e615bc5c": {
+      "workers": {
+        "app/(app)/dashboard/page": {
+          "moduleId": 44261,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "updateTaskStatus",
+      "filename": "app/actions/tasks.ts"
+    }
+  },
+  "edge": {}
+}

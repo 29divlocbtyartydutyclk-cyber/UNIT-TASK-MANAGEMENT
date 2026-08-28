@@ -1,0 +1,38 @@
+{
+  "node": {
+    "00f676a0033c6eae94ec52c55ba4e907c0e5b9eeb6": {
+      "workers": {
+        "app/(app)/settings/page": {
+          "moduleId": "[project]/.next-internal/server/app/(app)/settings/page/actions.js { ACTIONS_MODULE0 => \"[project]/app/actions/auth.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/app/actions/settings.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "logout",
+      "filename": "app/actions/auth.ts"
+    },
+    "60e2784baf9332cc11a6b0bb7c48f7c8c77447f597": {
+      "workers": {
+        "app/(app)/settings/page": {
+          "moduleId": "[project]/.next-internal/server/app/(app)/settings/page/actions.js { ACTIONS_MODULE0 => \"[project]/app/actions/auth.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/app/actions/settings.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "changeRolePassword",
+      "filename": "app/actions/auth.ts"
+    },
+    "4027c480619e81619d4ee7c848d1ee3ad8b82f7f55": {
+      "workers": {
+        "app/(app)/settings/page": {
+          "moduleId": "[project]/.next-internal/server/app/(app)/settings/page/actions.js { ACTIONS_MODULE0 => \"[project]/app/actions/auth.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/app/actions/settings.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "updateSettings",
+      "filename": "app/actions/settings.ts"
+    }
+  },
+  "edge": {}
+}

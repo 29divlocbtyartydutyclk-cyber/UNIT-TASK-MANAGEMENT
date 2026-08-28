@@ -9,10 +9,20 @@ import type { DisplayStatus } from "@/lib/constants";
 const BAR_COLORS: Partial<Record<DisplayStatus, string>> = {
   Completed: "bg-green-300 text-green-950 hover:bg-green-400",
   Pending: "bg-red-300 text-red-950 hover:bg-red-400",
+  Overdue: "bg-red-400 text-red-950 hover:bg-red-500",
 };
 const DEFAULT_BAR_COLOR = "bg-sky-300 text-sky-950 hover:bg-sky-400";
+const NEUTRAL_BAR_COLOR = "border border-sand-300 bg-sand-100 text-sand-800 hover:bg-sand-200";
 
-export function TaskBarList({ tasks, emptyMessage = "No tasks found." }: { tasks: Task[]; emptyMessage?: string }) {
+export function TaskBarList({
+  tasks,
+  emptyMessage = "No tasks found.",
+  colorMode = "status",
+}: {
+  tasks: Task[];
+  emptyMessage?: string;
+  colorMode?: "status" | "neutral";
+}) {
   const [selected, setSelected] = useState<Task | null>(null);
 
   if (tasks.length === 0) {
@@ -23,7 +33,8 @@ export function TaskBarList({ tasks, emptyMessage = "No tasks found." }: { tasks
     <div className="space-y-2 rounded-lg border border-sand-200 bg-white p-3">
       {tasks.map((task) => {
         const displayStatus = getDisplayStatus(task);
-        const colorClass = BAR_COLORS[displayStatus] ?? DEFAULT_BAR_COLOR;
+        const colorClass =
+          colorMode === "neutral" ? NEUTRAL_BAR_COLOR : (BAR_COLORS[displayStatus] ?? DEFAULT_BAR_COLOR);
         return (
           <button
             type="button"

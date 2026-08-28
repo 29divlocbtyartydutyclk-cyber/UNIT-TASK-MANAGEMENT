@@ -73,7 +73,7 @@ export default async function DashboardPage() {
               <div key={group.date.toDateString()}>
                 <h3 className="text-sm font-semibold tracking-wide text-sand-600">{formatDayHeading(group.date)}</h3>
                 <div className="mt-2">
-                  <TaskBarList tasks={group.tasks} />
+                  <TaskBarList tasks={group.tasks} colorMode="neutral" />
                 </div>
               </div>
             ))}

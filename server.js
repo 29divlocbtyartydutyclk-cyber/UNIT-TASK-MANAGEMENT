@@ -1,14 +1,4 @@
-const { execSync } = require("child_process");
-const path = require("path");
 const { createServer } = require("http");
-
-try {
-  const prismaBin = path.join(__dirname, "node_modules", ".bin", "prisma");
-  execSync(`"${prismaBin}" migrate deploy`, { stdio: "inherit", timeout: 30000 });
-} catch (err) {
-  console.error("Prisma migrate deploy failed:", err.message);
-}
-
 const { PrismaClient } = require("@prisma/client");
 const next = require("next");
 

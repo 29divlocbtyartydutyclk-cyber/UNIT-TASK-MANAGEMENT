@@ -3,19 +3,8 @@ import { getDisplayStatus } from "@/lib/utils/task-status";
 import { isTaskActiveToday, nextNDays, today, formatDayHeading, formatHeaderDate } from "@/lib/utils/date";
 import { parseBranches } from "@/lib/constants";
 import { SummaryTile } from "@/components/dashboard/SummaryTile";
-import { TodaysTasksBlock } from "@/components/dashboard/TodaysTasksBlock";
-import { TaskCard } from "@/components/tasks/TaskCard";
+import { TaskBarList } from "@/components/dashboard/TaskBarList";
 import type { Task } from "@prisma/client";
-
-function TaskCardGrid({ tasks }: { tasks: Task[] }) {
-  return (
-    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      {tasks.map((task) => (
-        <TaskCard key={task.id} task={task} />
-      ))}
-    </div>
-  );
-}
 
 export default async function DashboardPage() {
   const tasks = await getAllTasks();
@@ -70,7 +59,7 @@ export default async function DashboardPage() {
       <section className="mt-8">
         <h2 className="text-lg font-semibold uppercase text-sand-800">Today&apos;s Tasks</h2>
         <div className="mt-3">
-          <TodaysTasksBlock tasks={todaysTasks} />
+          <TaskBarList tasks={todaysTasks} emptyMessage="No tasks scheduled for today." />
         </div>
       </section>
 
@@ -79,12 +68,12 @@ export default async function DashboardPage() {
         {upcomingGroups.length === 0 ? (
           <p className="mt-2 text-sm text-sand-500">No upcoming tasks in the next 7 days.</p>
         ) : (
-          <div className="mt-3 space-y-6">
+          <div className="mt-3 space-y-5">
             {upcomingGroups.map((group) => (
               <div key={group.date.toDateString()}>
                 <h3 className="text-sm font-semibold tracking-wide text-sand-600">{formatDayHeading(group.date)}</h3>
                 <div className="mt-2">
-                  <TaskCardGrid tasks={group.tasks} />
+                  <TaskBarList tasks={group.tasks} />
                 </div>
               </div>
             ))}
@@ -94,13 +83,9 @@ export default async function DashboardPage() {
 
       <section className="mt-8">
         <h2 className="text-lg font-semibold uppercase text-red-700">Overdue Tasks</h2>
-        {overdueTasks.length === 0 ? (
-          <p className="mt-2 text-sm text-sand-500">No overdue tasks.</p>
-        ) : (
-          <div className="mt-3 rounded-lg border border-red-200 bg-red-50 p-4">
-            <TaskCardGrid tasks={overdueTasks} />
-          </div>
-        )}
+        <div className="mt-3">
+          <TaskBarList tasks={overdueTasks} emptyMessage="No overdue tasks." />
+        </div>
       </section>
     </div>
   );

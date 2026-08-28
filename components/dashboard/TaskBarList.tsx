@@ -7,16 +7,16 @@ import { getDisplayStatus } from "@/lib/utils/task-status";
 import type { DisplayStatus } from "@/lib/constants";
 
 const BAR_COLORS: Partial<Record<DisplayStatus, string>> = {
-  Completed: "bg-green-200 text-green-900 hover:bg-green-300",
-  Pending: "bg-red-200 text-red-900 hover:bg-red-300",
+  Completed: "bg-green-300 text-green-950 hover:bg-green-400",
+  Pending: "bg-red-300 text-red-950 hover:bg-red-400",
 };
-const DEFAULT_BAR_COLOR = "bg-sky-200 text-sky-900 hover:bg-sky-300";
+const DEFAULT_BAR_COLOR = "bg-sky-300 text-sky-950 hover:bg-sky-400";
 
-export function TodaysTasksBlock({ tasks }: { tasks: Task[] }) {
+export function TaskBarList({ tasks, emptyMessage = "No tasks found." }: { tasks: Task[]; emptyMessage?: string }) {
   const [selected, setSelected] = useState<Task | null>(null);
 
   if (tasks.length === 0) {
-    return <p className="text-sm text-sand-500">No tasks scheduled for today.</p>;
+    return <p className="text-sm text-sand-500">{emptyMessage}</p>;
   }
 
   return (

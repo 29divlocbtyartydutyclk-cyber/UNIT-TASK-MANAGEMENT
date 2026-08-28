@@ -15,16 +15,18 @@ export default async function TasksPage({
   const filteredTasks = filterTasks(tasks, filters);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold tracking-tight text-combat-800">Tasks</h1>
-        <AddTaskButton />
-      </div>
-      <div className="mt-4">
-        <TaskFilters />
-      </div>
-      <div className="mt-4">
-        <TaskList tasks={filteredTasks} />
+    <div className="min-h-full bg-[#D4DE95]">
+      <div className="mx-auto max-w-6xl px-4 py-6">
+        <div className="flex items-center justify-between">
+          <h1 className="text-2xl font-bold tracking-tight text-combat-800">Tasks</h1>
+          <AddTaskButton />
+        </div>
+        <div className="mt-4">
+          <TaskFilters />
+        </div>
+        <div className="mt-4">
+          <TaskList tasks={filteredTasks} />
+        </div>
       </div>
     </div>
   );

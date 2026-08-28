@@ -36,7 +36,8 @@ export default async function DashboardPage() {
   const upcomingGroups = [...upcomingByDay.values()].sort((a, b) => a.date.getTime() - b.date.getTime());
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-6">
+    <div className="min-h-full bg-[#D4DE95]">
+      <div className="mx-auto max-w-6xl px-4 py-6">
       <h1 className="text-2xl font-bold tracking-tight text-combat-800">UNIT DAILY MANAGEMENT DASHBOARD</h1>
       <p className="mt-1 text-sm text-sand-500">{formatHeaderDate(new Date())}</p>
 
@@ -96,6 +97,7 @@ export default async function DashboardPage() {
           <TaskBarList tasks={overdueTasks} emptyMessage="No overdue tasks." maxHeightClass="max-h-[320px]" />
         </div>
       </section>
+      </div>
     </div>
   );
 }

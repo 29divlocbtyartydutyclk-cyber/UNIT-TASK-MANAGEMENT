@@ -20,6 +20,20 @@ export function formatBranches(branches: string): string {
     .join(", ");
 }
 
+/** Row background colour by branch, for the Tasks table: A / Q / G / Common (shared across branches). */
+export const BRANCH_ROW_COLOR: Record<Branch | "Common", string> = {
+  "A Branch": "#E3F0FB",
+  "Q Branch": "#FBE0E2",
+  "G Branch": "#EDE9C8",
+  Common: "#E9E1F5",
+};
+
+export function getBranchRowColor(branches: string): string {
+  const parsed = parseBranches(branches);
+  if (parsed.length !== 1) return BRANCH_ROW_COLOR.Common;
+  return BRANCH_ROW_COLOR[parsed[0]];
+}
+
 export const CATEGORIES = ["Training", "Sports", "Administrative", "Other"] as const;
 export type Category = (typeof CATEGORIES)[number];
 

@@ -23,6 +23,7 @@ import { TaskForm } from "@/components/tasks/TaskForm";
 import { TaskDetailDialog } from "@/components/tasks/TaskDetailDialog";
 import { useCanEdit } from "@/components/auth/RoleProvider";
 import { ChevronLeftIcon, ChevronRightIcon } from "@/components/layout/icons";
+import { getHoliday } from "@/lib/holidays";
 
 const MONDAY_FIRST_LABELS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const SUNDAY_FIRST_LABELS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -70,7 +71,7 @@ export function CalendarView({
 
   return (
     <div>
-      <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-sand-200 bg-white px-4 py-3 shadow-sm">
+      <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-sand-200 bg-gradient-to-r from-[#CFE3F7] via-[#EDEBE3] to-[#F7D2D6] px-4 py-3 shadow-sm">
         <div className="flex items-center gap-2">
           <Link
             href={`/calendar?month=${prevMonthParam}`}
@@ -119,14 +120,16 @@ export function CalendarView({
             const dayTasks = tasksByDay.get(key) ?? [];
             const inMonth = isSameMonth(day, monthStart);
             const isToday = isSameDay(day, today);
+            const holiday = getHoliday(day);
 
             return (
               <div
                 key={key}
                 onClick={canEdit ? () => setCreateDate(formatDDMMYYYY(day)) : undefined}
                 className={`relative min-h-[92px] rounded-lg p-1.5 align-top shadow-sm transition-all sm:min-h-[112px] ${
-                  isToday ? "bg-combat-200 ring-2 ring-inset ring-combat-600" : "bg-combat-50"
-                } ${canEdit ? "cursor-pointer hover:-translate-y-0.5 hover:bg-combat-100 hover:shadow-md" : ""}`}
+                  isToday ? "bg-combat-200 ring-2 ring-inset ring-combat-600" : ""
+                } ${canEdit ? "cursor-pointer hover:-translate-y-0.5 hover:shadow-md" : ""}`}
+                style={isToday ? undefined : { backgroundColor: holiday ? "#FF8590" : "#D4DE95" }}
               >
                 <div className="mb-1 flex items-center justify-between">
                   {isToday && (
@@ -139,13 +142,16 @@ export function CalendarView({
                       isToday
                         ? "bg-combat-600 text-white shadow-sm"
                         : inMonth
-                          ? "text-combat-800"
-                          : "text-combat-400"
+                          ? "text-combat-900"
+                          : "text-combat-900/40"
                     }`}
                   >
                     {format(day, "d")}
                   </span>
                 </div>
+                {holiday && (
+                  <p className="mb-1 truncate text-[9px] font-bold uppercase leading-tight text-red-950">{holiday.name}</p>
+                )}
                 <div className="space-y-0.5">
                   {dayTasks.map((task) => {
                     const c = CATEGORY_COLORS[task.category as Category];

@@ -6,11 +6,13 @@ import { TaskFormDialog } from "@/components/tasks/TaskFormDialog";
 import { TaskForm } from "@/components/tasks/TaskForm";
 import { StatusSelect } from "@/components/tasks/StatusSelect";
 import { deleteTask, updateTaskStatus } from "@/app/actions/tasks";
+import { useCanEdit } from "@/components/auth/RoleProvider";
 import type { Status } from "@/lib/constants";
 
 export function TaskRowActions({ task }: { task: Task }) {
   const [editOpen, setEditOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
+  const canEdit = useCanEdit();
 
   function handleStatusChange(status: Status) {
     startTransition(async () => {
@@ -25,10 +27,18 @@ export function TaskRowActions({ task }: { task: Task }) {
     });
   }
 
+  if (!canEdit) {
+    return <span className="text-xs text-sand-400">View only</span>;
+  }
+
   return (
     <div className="flex flex-wrap items-center gap-3">
       <StatusSelect value={task.status} onChange={handleStatusChange} disabled={isPending} />
-      <button type="button" onClick={() => setEditOpen(true)} className="text-xs font-medium text-combat-700 hover:underline">
+      <button
+        type="button"
+        onClick={() => setEditOpen(true)}
+        className="text-xs font-medium text-combat-700 hover:underline"
+      >
         Edit
       </button>
       <button

@@ -21,6 +21,7 @@ import { AddTaskButton } from "@/components/tasks/AddTaskButton";
 import { TaskFormDialog } from "@/components/tasks/TaskFormDialog";
 import { TaskForm } from "@/components/tasks/TaskForm";
 import { TaskDetailDialog } from "@/components/tasks/TaskDetailDialog";
+import { useCanEdit } from "@/components/auth/RoleProvider";
 
 const MONDAY_FIRST_LABELS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const SUNDAY_FIRST_LABELS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -41,6 +42,7 @@ export function CalendarView({
 }) {
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
   const [createDate, setCreateDate] = useState<string | null>(null);
+  const canEdit = useCanEdit();
 
   const monthStart = startOfMonth(parseMonthParam(monthParam));
   const monthEnd = endOfMonth(monthStart);
@@ -98,8 +100,8 @@ export function CalendarView({
           return (
             <div
               key={key}
-              onClick={() => setCreateDate(formatDDMMYYYY(day))}
-              className={`min-h-[92px] cursor-pointer bg-white p-1.5 align-top hover:bg-sand-50 sm:min-h-[110px] ${
+              onClick={canEdit ? () => setCreateDate(formatDDMMYYYY(day)) : undefined}
+              className={`min-h-[92px] bg-white p-1.5 align-top sm:min-h-[110px] ${canEdit ? "cursor-pointer hover:bg-sand-50" : ""} ${
                 inMonth ? "" : "opacity-40"
               }`}
             >

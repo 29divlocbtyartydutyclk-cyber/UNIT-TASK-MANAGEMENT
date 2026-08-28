@@ -28,9 +28,12 @@ model Task {
 }
 
 model Settings {
-  id              Int      @id @default(1)
-  unitName        String   @default("Unit")
-  defaultReminder String   @default("None")
-  weekStartsOn    String   @default("Monday")
-  updatedAt       DateTime @updatedAt
+  id                 Int      @id @default(1)
+  unitName           String   @default("Unit")
+  defaultReminder    String   @default("None")
+  weekStartsOn       String   @default("Monday")
+  adminPasswordHash  String   @default("$2b$10$sqf9dgEam1i01I5JPYNcNOW2bRIjDKOUCGCqB1JkhwrwxND.GWqnS")
+  clerkPasswordHash  String   @default("$2b$10$2IhIaIU1pxbHvQtwABOpfeLF7FWfrLKawREUmoX6lgDU3X740fz1q")
+  viewerPasswordHash String   @default("$2b$10$IKxCowPAKDKdereqMV/qM.Do7QPv6cI7Ovw64AQUVMzi.XzdXkGWW")
+  updatedAt          DateTime @updatedAt
 }

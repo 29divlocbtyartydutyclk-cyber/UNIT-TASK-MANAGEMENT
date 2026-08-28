@@ -4,9 +4,13 @@ import { useState } from "react";
 import { TaskFormDialog } from "@/components/tasks/TaskFormDialog";
 import { TaskForm } from "@/components/tasks/TaskForm";
 import { PlusIcon } from "@/components/layout/icons";
+import { useCanEdit } from "@/components/auth/RoleProvider";
 
 export function AddTaskButton({ defaultDate }: { defaultDate?: string }) {
   const [open, setOpen] = useState(false);
+  const canEdit = useCanEdit();
+
+  if (!canEdit) return null;
 
   return (
     <>

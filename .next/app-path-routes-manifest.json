@@ -5,6 +5,7 @@
   "/(app)/tasks/page": "/tasks",
   "/_global-error/page": "/_global-error",
   "/_not-found/page": "/_not-found",
+  "/access/page": "/access",
   "/api/cron/notify/route": "/api/cron/notify",
   "/favicon.ico/route": "/favicon.ico",
   "/login/page": "/login",

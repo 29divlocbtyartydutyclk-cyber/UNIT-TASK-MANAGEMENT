@@ -1,6 +1,6 @@
 {
   "node": {
-    "006775af8f5054076c5b4b61b0bfa06bc1e3f76942": {
+    "00efd70d970ffa6b615c22518e72e8119ef4fd90dc": {
       "workers": {
         "app/(app)/calendar/page": {
           "moduleId": 41320,
@@ -8,7 +8,7 @@
           "codeHash": null
         },
         "app/(app)/dashboard/page": {
-          "moduleId": 44261,
+          "moduleId": 90066,
           "async": false,
           "codeHash": null
         },
@@ -26,7 +26,7 @@
       "filename": "app/actions/auth.ts",
       "exportedName": "logout"
     },
-    "4010353a27d786ef212f3aeef94f4f96c91b403b5e": {
+    "4085cb3f18f98a17802e261577e898a9bb4b000fb1": {
       "workers": {
         "app/(app)/calendar/page": {
           "moduleId": 41320,
@@ -34,7 +34,7 @@
           "codeHash": null
         },
         "app/(app)/dashboard/page": {
-          "moduleId": 44261,
+          "moduleId": 90066,
           "async": false,
           "codeHash": null
         },
@@ -47,7 +47,7 @@
       "filename": "app/actions/tasks.ts",
       "exportedName": "createTask"
     },
-    "603af9c5fd58b5f8be596f854c8f6f191c4aa3f1c2": {
+    "60a3293a9eac7c90b0a99aa67e913d54d20c362900": {
       "workers": {
         "app/(app)/calendar/page": {
           "moduleId": 41320,
@@ -55,7 +55,7 @@
           "codeHash": null
         },
         "app/(app)/dashboard/page": {
-          "moduleId": 44261,
+          "moduleId": 90066,
           "async": false,
           "codeHash": null
         },
@@ -68,7 +68,7 @@
       "filename": "app/actions/tasks.ts",
       "exportedName": "updateTask"
     },
-    "6032eac585e6d6e0577cd7111c8a12b395e615bc5c": {
+    "60ed136798f064961cf05f752f7f742855a640e05c": {
       "workers": {
         "app/(app)/calendar/page": {
           "moduleId": 41320,
@@ -76,7 +76,7 @@
           "codeHash": null
         },
         "app/(app)/dashboard/page": {
-          "moduleId": 44261,
+          "moduleId": 90066,
           "async": false,
           "codeHash": null
         },
@@ -89,7 +89,29 @@
       "filename": "app/actions/tasks.ts",
       "exportedName": "updateTaskStatus"
     },
-    "40f46fb6016946e017091b36007647860758dd854b": {
+    "4042c864622a4a2ee6931d73c9a903dc195e852e77": {
+      "workers": {
+        "app/(app)/dashboard/page": {
+          "moduleId": 90066,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/push.ts",
+      "exportedName": "subscribeToPush"
+    },
+    "40faf58d786979a90ae1ca48d5845e29492f0bd394": {
+      "workers": {
+        "app/(app)/dashboard/page": {
+          "moduleId": 90066,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/push.ts",
+      "exportedName": "unsubscribeFromPush"
+    },
+    "4008d13c6fc72f197f43f3423845593aa85384632a": {
       "workers": {
         "app/(app)/settings/page": {
           "moduleId": 29984,
@@ -100,7 +122,7 @@
       "filename": "app/actions/settings.ts",
       "exportedName": "updateSettings"
     },
-    "600ac68c9092fbbe0ad311635b7bacffdc5a96e131": {
+    "60a8fb1b2914a8e634900283421e60087b52aa8a3f": {
       "workers": {
         "app/(app)/settings/page": {
           "moduleId": 29984,
@@ -111,7 +133,7 @@
       "filename": "app/actions/auth.ts",
       "exportedName": "changeRolePassword"
     },
-    "400d583a3544a989af93be3dd78efaf304c16b1e1e": {
+    "4067df994d9bee08b6b57f5e9917cc3060dca33ee1": {
       "workers": {
         "app/(app)/tasks/page": {
           "moduleId": 38848,
@@ -122,7 +144,7 @@
       "filename": "app/actions/tasks.ts",
       "exportedName": "deleteTask"
     },
-    "60e333669bb757b3fb6b8fe055be8b59b1bffc7003": {
+    "6024f5a273f7ae3df059e48c42225bf4879fb04857": {
       "workers": {
         "app/login/page": {
           "moduleId": 51661,
@@ -135,5 +157,5 @@
     }
   },
   "edge": {},
-  "encryptionKey": "3xwSRIpLruPPNBwI11vPsJOu7S8gKkNG6a4hE1yYa2E="
+  "encryptionKey": "DQXV4B5a+gUjl6R4TqvFXHGL6swgiZwp++FWt5c2PqI="
 }

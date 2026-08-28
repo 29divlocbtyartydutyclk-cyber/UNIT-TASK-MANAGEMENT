@@ -42,6 +42,12 @@
       "namedRegex": "^/_not\\-found(?:/)?$"
     },
     {
+      "page": "/api/cron/notify",
+      "regex": "^/api/cron/notify(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/cron/notify(?:/)?$"
+    },
+    {
       "page": "/calendar",
       "regex": "^/calendar(?:/)?$",
       "routeKeys": {},

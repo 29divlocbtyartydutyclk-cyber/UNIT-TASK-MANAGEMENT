@@ -1,9 +1,9 @@
 {
   "node": {
-    "006775af8f5054076c5b4b61b0bfa06bc1e3f76942": {
+    "00efd70d970ffa6b615c22518e72e8119ef4fd90dc": {
       "workers": {
         "app/(app)/dashboard/page": {
-          "moduleId": 44261,
+          "moduleId": 90066,
           "async": false,
           "codeHash": null
         }
@@ -11,10 +11,10 @@
       "exportedName": "logout",
       "filename": "app/actions/auth.ts"
     },
-    "4010353a27d786ef212f3aeef94f4f96c91b403b5e": {
+    "4085cb3f18f98a17802e261577e898a9bb4b000fb1": {
       "workers": {
         "app/(app)/dashboard/page": {
-          "moduleId": 44261,
+          "moduleId": 90066,
           "async": false,
           "codeHash": null
         }
@@ -22,10 +22,10 @@
       "exportedName": "createTask",
       "filename": "app/actions/tasks.ts"
     },
-    "603af9c5fd58b5f8be596f854c8f6f191c4aa3f1c2": {
+    "60a3293a9eac7c90b0a99aa67e913d54d20c362900": {
       "workers": {
         "app/(app)/dashboard/page": {
-          "moduleId": 44261,
+          "moduleId": 90066,
           "async": false,
           "codeHash": null
         }
@@ -33,16 +33,38 @@
       "exportedName": "updateTask",
       "filename": "app/actions/tasks.ts"
     },
-    "6032eac585e6d6e0577cd7111c8a12b395e615bc5c": {
+    "60ed136798f064961cf05f752f7f742855a640e05c": {
       "workers": {
         "app/(app)/dashboard/page": {
-          "moduleId": 44261,
+          "moduleId": 90066,
           "async": false,
           "codeHash": null
         }
       },
       "exportedName": "updateTaskStatus",
       "filename": "app/actions/tasks.ts"
+    },
+    "4042c864622a4a2ee6931d73c9a903dc195e852e77": {
+      "workers": {
+        "app/(app)/dashboard/page": {
+          "moduleId": 90066,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "subscribeToPush",
+      "filename": "app/actions/push.ts"
+    },
+    "40faf58d786979a90ae1ca48d5845e29492f0bd394": {
+      "workers": {
+        "app/(app)/dashboard/page": {
+          "moduleId": 90066,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "unsubscribeFromPush",
+      "filename": "app/actions/push.ts"
     }
   },
   "edge": {}

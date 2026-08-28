@@ -5,6 +5,7 @@ import { isTaskActiveToday, nextNDays, today, formatDayHeading, formatHeaderDate
 import { parseBranches } from "@/lib/constants";
 import { SummaryTile } from "@/components/dashboard/SummaryTile";
 import { TaskBarList } from "@/components/dashboard/TaskBarList";
+import { NotificationToggle } from "@/components/settings/NotificationToggle";
 import type { Task } from "@prisma/client";
 
 export default async function DashboardPage() {
@@ -40,6 +41,10 @@ export default async function DashboardPage() {
       <div className="mx-auto max-w-6xl px-4 py-6">
       <h1 className="text-2xl font-bold tracking-tight text-combat-800">UNIT DAILY MANAGEMENT DASHBOARD</h1>
       <p className="mt-1 text-sm text-sand-500">{formatHeaderDate(new Date())}</p>
+
+      <div className="mt-4 rounded-lg border border-combat-200 bg-white/60 px-4 py-3">
+        <NotificationToggle />
+      </div>
 
       <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8">
         <SummaryTile label="Today's Total" value={todaysTasks.length} barColor="border-l-combat-500" />

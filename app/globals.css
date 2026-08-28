@@ -41,16 +41,3 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
-
-/*
- * Bangladesh Army DPM-style disruptive pattern: a khaki base with large,
- * irregular "brush-stroke" blobs in olive, black and maroon (BD Army's
- * DPM is a derivative of the British four-colour DPM), not a repeat of
- * simple circles like a generic camo icon would use.
- */
-.bg-camo {
-  background-color: #a9976b;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='200' viewBox='0 0 320 200'%3E%3Crect width='320' height='200' fill='%23A9976B'/%3E%3Cpath d='M8,58 C-4,36 18,6 60,12 C104,18 146,6 168,32 C184,52 168,82 124,88 C82,94 40,88 18,74 C6,66 6,64 8,58 Z' fill='%234A5D23'/%3E%3Cpath d='M196,18 C180,6 208,-10 236,2 C258,10 264,30 246,46 C228,60 200,52 196,34 C193,28 193,23 196,18 Z' fill='%231A1A15'/%3E%3Cpath d='M34,152 C12,140 24,112 58,106 C104,98 158,116 190,138 C212,152 200,178 166,182 C122,187 66,180 44,168 C34,163 32,157 34,152 Z' fill='%235C2A2A'/%3E%3Cpath d='M244,112 C226,96 254,74 288,86 C310,94 316,120 298,138 C280,154 250,148 240,132 C236,126 238,118 244,112 Z' fill='%23394E26'/%3E%3Cpath d='M112,14 C100,2 124,-14 148,-2 C160,4 160,20 146,28 C130,36 114,28 114,18 C114,17 112,16 112,14 Z' fill='%231A1A15'/%3E%3Cpath d='M266,4 C254,-8 282,-20 300,-4 C312,6 308,24 290,28 C272,32 260,20 262,10 C262,8 264,6 266,4 Z' fill='%235C2A2A'/%3E%3Cpath d='M0,110 C-8,96 10,80 32,86 C48,90 50,108 36,118 C22,128 4,122 0,110 Z' fill='%234A5D23'/%3E%3C/svg%3E");
-  background-size: 320px 200px;
-  background-repeat: repeat;
-}

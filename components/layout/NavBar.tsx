@@ -14,7 +14,7 @@ export function NavBar() {
   const items = NAV_ITEMS.filter((item) => item.href !== "/settings" || isAdmin);
 
   return (
-    <header className="bg-camo hidden items-center justify-between border-b border-combat-900 px-6 py-3 text-sand-50 [text-shadow:0_1px_2px_rgba(0,0,0,0.6)] md:flex">
+    <header className="hidden items-center justify-between border-b border-combat-900 bg-combat-800 px-6 py-3 text-sand-50 md:flex">
       <Link href="/dashboard" className="text-sm font-semibold tracking-wide uppercase">
         Unit Task Management
       </Link>

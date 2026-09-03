@@ -1,6 +1,6 @@
 {
   "node": {
-    "0064b5a613448403ff859d81b275770ddfb6b092ab": {
+    "00407bbcd9c6e349aa398aefd271a2d50461b00dd0": {
       "workers": {
         "app/(app)/calendar/page": {
           "moduleId": 41320,
@@ -26,7 +26,7 @@
       "filename": "app/actions/auth.ts",
       "exportedName": "logout"
     },
-    "40efdced50663f54ee34ca0e01b3328b7394609fdc": {
+    "40d4d032f8cbcee5db0c6355cd69013d3ebcb6b438": {
       "workers": {
         "app/(app)/calendar/page": {
           "moduleId": 41320,
@@ -47,7 +47,7 @@
       "filename": "app/actions/tasks.ts",
       "exportedName": "createTask"
     },
-    "60e2fad9afc4f65639a623a1085253f12d4c4c7697": {
+    "603397dae43739b0e35428222efcddeab295106174": {
       "workers": {
         "app/(app)/calendar/page": {
           "moduleId": 41320,
@@ -68,7 +68,7 @@
       "filename": "app/actions/tasks.ts",
       "exportedName": "updateTask"
     },
-    "60fa3ba1cddd64b5e22723c952e0e592d1b394014f": {
+    "60e9a01c871048f8e09e0b4e0e4b5d535255805101": {
       "workers": {
         "app/(app)/calendar/page": {
           "moduleId": 41320,
@@ -89,7 +89,7 @@
       "filename": "app/actions/tasks.ts",
       "exportedName": "updateTaskStatus"
     },
-    "40636408d40bdb1114972f38a131a46286ba9b1846": {
+    "40f2985c1f55f5267ac2d6d8ad53a3d3d332edf610": {
       "workers": {
         "app/(app)/dashboard/page": {
           "moduleId": 90066,
@@ -100,7 +100,7 @@
       "filename": "app/actions/push.ts",
       "exportedName": "subscribeToPush"
     },
-    "40a70833677e164ced9d2cccf191c09a68f1876a5f": {
+    "4001b23d7285f6e4cd250acb0e6a5124cf94113eb6": {
       "workers": {
         "app/(app)/dashboard/page": {
           "moduleId": 90066,
@@ -111,7 +111,7 @@
       "filename": "app/actions/push.ts",
       "exportedName": "unsubscribeFromPush"
     },
-    "40d02a7d95890fd045e0faf0bafaec0a61f4758865": {
+    "409b36e5b19a6bddf935d6133795f02ae4e37ce3b3": {
       "workers": {
         "app/(app)/settings/page": {
           "moduleId": 29984,
@@ -122,7 +122,7 @@
       "filename": "app/actions/settings.ts",
       "exportedName": "updateSettings"
     },
-    "60f9dfae046bc86a4dd6060edfb50ba0895120d245": {
+    "60e9b59fe7d22587b058e91d26cbfd336b49b66d0f": {
       "workers": {
         "app/(app)/settings/page": {
           "moduleId": 29984,
@@ -133,7 +133,7 @@
       "filename": "app/actions/auth.ts",
       "exportedName": "changeRolePassword"
     },
-    "40cd56c1f575109e2595c518011ab2bf218ce6f69b": {
+    "40d102c1a545c71d7b8188ab0459d0051c966b1cb7": {
       "workers": {
         "app/(app)/tasks/page": {
           "moduleId": 38848,
@@ -144,7 +144,353 @@
       "filename": "app/actions/tasks.ts",
       "exportedName": "deleteTask"
     },
-    "60fa5ca28725831e9802194a575d4692ff52db74cb": {
+    "0064bacfcb5247fad5eaee9eda949622ad7d4bdc4b": {
+      "workers": {
+        "app/course/admin/courses/[courseId]/page": {
+          "moduleId": 16222,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/admin/courses/[courseId]/quizzes/[quizId]/page": {
+          "moduleId": 51650,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/admin/courses/page": {
+          "moduleId": 36618,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/admin/page": {
+          "moduleId": 84270,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/admin/settings/page": {
+          "moduleId": 71672,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/admin/users/page": {
+          "moduleId": 66575,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/courses/[courseId]/page": {
+          "moduleId": 69510,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/courses/page": {
+          "moduleId": 87187,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/pending-approval/page": {
+          "moduleId": 78264,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/course-auth.ts",
+      "exportedName": "courseLogout"
+    },
+    "403fd47acfd3ff4d028f597bbcea76e3fbef883140": {
+      "workers": {
+        "app/course/admin/courses/[courseId]/page": {
+          "moduleId": 16222,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/admin/courses/[courseId]/quizzes/[quizId]/page": {
+          "moduleId": 51650,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/admin/courses/page": {
+          "moduleId": 36618,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/admin/page": {
+          "moduleId": 84270,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/admin/settings/page": {
+          "moduleId": 71672,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/admin/users/page": {
+          "moduleId": 66575,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/courses/[courseId]/page": {
+          "moduleId": 69510,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/courses/page": {
+          "moduleId": 87187,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/login/page": {
+          "moduleId": 83944,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/pending-approval/page": {
+          "moduleId": 78264,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/course-auth.ts",
+      "exportedName": "courseLogin"
+    },
+    "40b65dd7bbb1c6b3441aa847592b2aa297d0e68d98": {
+      "workers": {
+        "app/course/admin/courses/[courseId]/page": {
+          "moduleId": 16222,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/admin/courses/[courseId]/quizzes/[quizId]/page": {
+          "moduleId": 51650,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/admin/courses/page": {
+          "moduleId": 36618,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/admin/page": {
+          "moduleId": 84270,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/admin/settings/page": {
+          "moduleId": 71672,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/admin/users/page": {
+          "moduleId": 66575,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/courses/[courseId]/page": {
+          "moduleId": 69510,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/courses/page": {
+          "moduleId": 87187,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/pending-approval/page": {
+          "moduleId": 78264,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/course-auth.ts",
+      "exportedName": "changeCourseAdminPassword"
+    },
+    "40dd4f1208af8c1beabe3585e4dd4d8d4cd8966de3": {
+      "workers": {
+        "app/course/admin/courses/[courseId]/page": {
+          "moduleId": 16222,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/admin/courses/[courseId]/quizzes/[quizId]/page": {
+          "moduleId": 51650,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/admin/courses/page": {
+          "moduleId": 36618,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/admin/page": {
+          "moduleId": 84270,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/admin/settings/page": {
+          "moduleId": 71672,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/admin/users/page": {
+          "moduleId": 66575,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/courses/[courseId]/page": {
+          "moduleId": 69510,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/courses/page": {
+          "moduleId": 87187,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/pending-approval/page": {
+          "moduleId": 78264,
+          "async": false,
+          "codeHash": null
+        },
+        "app/course/register/page": {
+          "moduleId": 6858,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/course-auth.ts",
+      "exportedName": "courseRegister"
+    },
+    "40237e0e2e8c907389eb851854291fbef9cb5e4fbe": {
+      "workers": {
+        "app/course/admin/courses/page": {
+          "moduleId": 36618,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/course-courses.ts",
+      "exportedName": "createCourse"
+    },
+    "4011017979a38ef8911c20ca8aefbf9ddc0127b674": {
+      "workers": {
+        "app/course/admin/courses/[courseId]/page": {
+          "moduleId": 16222,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/course-documents.ts",
+      "exportedName": "uploadCourseDocument"
+    },
+    "407b0b627e59e5c712fdd2ddd191cd3b57e6b75d2e": {
+      "workers": {
+        "app/course/admin/courses/[courseId]/page": {
+          "moduleId": 16222,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/course-documents.ts",
+      "exportedName": "deleteCourseDocument"
+    },
+    "4042ab3982f6815d860c4c085ebdf4aa395caed9c7": {
+      "workers": {
+        "app/course/admin/courses/[courseId]/page": {
+          "moduleId": 16222,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/course-quizzes.ts",
+      "exportedName": "createCourseQuiz"
+    },
+    "40688c296cd832625704367b113b8dc96ebf6057d4": {
+      "workers": {
+        "app/course/admin/courses/[courseId]/quizzes/[quizId]/page": {
+          "moduleId": 51650,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/course-questions.ts",
+      "exportedName": "createCourseQuestion"
+    },
+    "40a4b77e1797ac3a44e6db8fd20eceeb620935ec2e": {
+      "workers": {
+        "app/course/admin/courses/[courseId]/quizzes/[quizId]/page": {
+          "moduleId": 51650,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/course-questions.ts",
+      "exportedName": "deleteCourseQuestion"
+    },
+    "60c58130e5716a8230faa5d7263a34642b7b2d961d": {
+      "workers": {
+        "app/course/admin/courses/[courseId]/quizzes/[quizId]/page": {
+          "moduleId": 51650,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/course-questions.ts",
+      "exportedName": "updateCourseQuestion"
+    },
+    "00e58a778fcf3d84d7c3986092a0c3cd109e9ae4b1": {
+      "workers": {
+        "app/course/admin/users/page": {
+          "moduleId": 66575,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/course-users.ts",
+      "exportedName": "listPendingCourseUsers"
+    },
+    "40b7e1aa1167812f9969abcb97f4351f2363a08fc4": {
+      "workers": {
+        "app/course/admin/users/page": {
+          "moduleId": 66575,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/course-users.ts",
+      "exportedName": "rejectCourseUser"
+    },
+    "40d78caf3b88d89b8b41d793bac0a09740db77ba38": {
+      "workers": {
+        "app/course/admin/users/page": {
+          "moduleId": 66575,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/course-users.ts",
+      "exportedName": "approveCourseUser"
+    },
+    "4011a4bacab14bf154dd43c948328812354deb627f": {
+      "workers": {
+        "app/course/quizzes/[quizId]/attempt/page": {
+          "moduleId": 89468,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/course-attempts.ts",
+      "exportedName": "startCourseAttempt"
+    },
+    "4048ecc220944666b7b1c155b2d401abbe23deed0f": {
+      "workers": {
+        "app/course/quizzes/[quizId]/attempt/page": {
+          "moduleId": 89468,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/course-attempts.ts",
+      "exportedName": "submitCourseAttempt"
+    },
+    "60bdbee78ee0a5c8f35e5a9efdf801295659b86baf": {
       "workers": {
         "app/login/page": {
           "moduleId": 51661,
@@ -157,5 +503,5 @@
     }
   },
   "edge": {},
-  "encryptionKey": "lfnbHi9VSi3rifqnKXGjsKq+3VQqwnWDFRqnpLDNjOs="
+  "encryptionKey": "xvgoNeh1WClZ1Bba+SQUNEGUNb5UnmxoWoWWgb5ZECU="
 }

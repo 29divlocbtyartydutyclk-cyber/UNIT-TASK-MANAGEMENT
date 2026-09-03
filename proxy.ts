@@ -1,7 +1,9 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { SESSION_COOKIE_NAME, verifySessionToken } from "@/lib/auth/session";
+import { COURSE_SESSION_COOKIE_NAME, verifyCourseSessionToken } from "@/lib/course/auth/session";
 
 const PUBLIC_PATHS = [
+  "/",
   "/login",
   "/api/cron",
   "/access",
@@ -12,12 +14,31 @@ const PUBLIC_PATHS = [
   "/qr-access.png",
   "/favicon.ico",
   "/unit-tasks.apk",
+  "/course/login",
+  "/course/register",
+  "/course/pending-approval",
 ];
 
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  if (PUBLIC_PATHS.some((p) => pathname === p || pathname.startsWith(p + "/"))) {
+  if (pathname === "/" || PUBLIC_PATHS.some((p) => p !== "/" && (pathname === p || pathname.startsWith(p + "/")))) {
+    return NextResponse.next();
+  }
+
+  if (pathname.startsWith("/course")) {
+    const token = request.cookies.get(COURSE_SESSION_COOKIE_NAME)?.value;
+    const session = token ? await verifyCourseSessionToken(token) : null;
+
+    if (!session) {
+      return NextResponse.redirect(new URL("/course/login", request.url));
+    }
+    if (session.role !== "ADMIN" && session.status !== "APPROVED" && pathname !== "/course/pending-approval") {
+      return NextResponse.redirect(new URL("/course/pending-approval", request.url));
+    }
+    if (pathname.startsWith("/course/admin") && session.role !== "ADMIN") {
+      return NextResponse.redirect(new URL("/course/courses", request.url));
+    }
     return NextResponse.next();
   }
 

@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Plain CommonJS bootstrap script for Passenger hosting, not part of the app's TS/ESM code.
+    "server.js",
   ]),
 ]);
 

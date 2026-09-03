@@ -1,0 +1,82 @@
+{
+  "node": {
+    "0064bacfcb5247fad5eaee9eda949622ad7d4bdc4b": {
+      "workers": {
+        "app/course/admin/courses/[courseId]/page": {
+          "moduleId": 16222,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "courseLogout",
+      "filename": "app/actions/course-auth.ts"
+    },
+    "403fd47acfd3ff4d028f597bbcea76e3fbef883140": {
+      "workers": {
+        "app/course/admin/courses/[courseId]/page": {
+          "moduleId": 16222,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "courseLogin",
+      "filename": "app/actions/course-auth.ts"
+    },
+    "40b65dd7bbb1c6b3441aa847592b2aa297d0e68d98": {
+      "workers": {
+        "app/course/admin/courses/[courseId]/page": {
+          "moduleId": 16222,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "changeCourseAdminPassword",
+      "filename": "app/actions/course-auth.ts"
+    },
+    "40dd4f1208af8c1beabe3585e4dd4d8d4cd8966de3": {
+      "workers": {
+        "app/course/admin/courses/[courseId]/page": {
+          "moduleId": 16222,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "courseRegister",
+      "filename": "app/actions/course-auth.ts"
+    },
+    "4011017979a38ef8911c20ca8aefbf9ddc0127b674": {
+      "workers": {
+        "app/course/admin/courses/[courseId]/page": {
+          "moduleId": 16222,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "uploadCourseDocument",
+      "filename": "app/actions/course-documents.ts"
+    },
+    "407b0b627e59e5c712fdd2ddd191cd3b57e6b75d2e": {
+      "workers": {
+        "app/course/admin/courses/[courseId]/page": {
+          "moduleId": 16222,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "deleteCourseDocument",
+      "filename": "app/actions/course-documents.ts"
+    },
+    "4042ab3982f6815d860c4c085ebdf4aa395caed9c7": {
+      "workers": {
+        "app/course/admin/courses/[courseId]/page": {
+          "moduleId": 16222,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "createCourseQuiz",
+      "filename": "app/actions/course-quizzes.ts"
+    }
+  },
+  "edge": {}
+}

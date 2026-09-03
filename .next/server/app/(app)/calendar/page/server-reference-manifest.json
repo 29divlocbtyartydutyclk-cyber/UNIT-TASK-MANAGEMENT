@@ -1,6 +1,6 @@
 {
   "node": {
-    "0064b5a613448403ff859d81b275770ddfb6b092ab": {
+    "00407bbcd9c6e349aa398aefd271a2d50461b00dd0": {
       "workers": {
         "app/(app)/calendar/page": {
           "moduleId": 41320,
@@ -11,7 +11,7 @@
       "exportedName": "logout",
       "filename": "app/actions/auth.ts"
     },
-    "40efdced50663f54ee34ca0e01b3328b7394609fdc": {
+    "40d4d032f8cbcee5db0c6355cd69013d3ebcb6b438": {
       "workers": {
         "app/(app)/calendar/page": {
           "moduleId": 41320,
@@ -22,7 +22,7 @@
       "exportedName": "createTask",
       "filename": "app/actions/tasks.ts"
     },
-    "60e2fad9afc4f65639a623a1085253f12d4c4c7697": {
+    "603397dae43739b0e35428222efcddeab295106174": {
       "workers": {
         "app/(app)/calendar/page": {
           "moduleId": 41320,
@@ -33,7 +33,7 @@
       "exportedName": "updateTask",
       "filename": "app/actions/tasks.ts"
     },
-    "60fa3ba1cddd64b5e22723c952e0e592d1b394014f": {
+    "60e9a01c871048f8e09e0b4e0e4b5d535255805101": {
       "workers": {
         "app/(app)/calendar/page": {
           "moduleId": 41320,

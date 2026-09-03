@@ -1,0 +1,49 @@
+{
+  "node": {
+    "0064bacfcb5247fad5eaee9eda949622ad7d4bdc4b": {
+      "workers": {
+        "app/course/courses/page": {
+          "moduleId": 87187,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "courseLogout",
+      "filename": "app/actions/course-auth.ts"
+    },
+    "403fd47acfd3ff4d028f597bbcea76e3fbef883140": {
+      "workers": {
+        "app/course/courses/page": {
+          "moduleId": 87187,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "courseLogin",
+      "filename": "app/actions/course-auth.ts"
+    },
+    "40b65dd7bbb1c6b3441aa847592b2aa297d0e68d98": {
+      "workers": {
+        "app/course/courses/page": {
+          "moduleId": 87187,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "changeCourseAdminPassword",
+      "filename": "app/actions/course-auth.ts"
+    },
+    "40dd4f1208af8c1beabe3585e4dd4d8d4cd8966de3": {
+      "workers": {
+        "app/course/courses/page": {
+          "moduleId": 87187,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "courseRegister",
+      "filename": "app/actions/course-auth.ts"
+    }
+  },
+  "edge": {}
+}

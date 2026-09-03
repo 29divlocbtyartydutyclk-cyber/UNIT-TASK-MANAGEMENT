@@ -5,7 +5,7 @@
       "routeType": "page",
       "response": "complete",
       "compute": "static",
-      "htmlSize": 6077,
+      "htmlSize": 9394,
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -114,6 +114,90 @@
         "x-next-revalidate-tag-token"
       ]
     },
+    "/course/login": {
+      "routeType": "page",
+      "response": "complete",
+      "compute": "static",
+      "htmlSize": 9522,
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/course/login",
+      "dataRoute": "/course/login.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/course/pending-approval": {
+      "routeType": "page",
+      "response": "complete",
+      "compute": "static",
+      "htmlSize": 9265,
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/course/pending-approval",
+      "dataRoute": "/course/pending-approval.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/course/register": {
+      "routeType": "page",
+      "response": "complete",
+      "compute": "static",
+      "htmlSize": 10412,
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/course/register",
+      "dataRoute": "/course/register.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/favicon.ico": {
       "initialHeaders": {
         "cache-control": "public, max-age=0, must-revalidate",
@@ -178,8 +262,8 @@
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "c913c6a3a6c8a28e5fce82f9cdabaa72",
-    "previewModeSigningKey": "4f8893ab467c729a2f0afa8ce615be92c296cf157b5cb80b5729b9d82d67ba71",
-    "previewModeEncryptionKey": "6655c6425859c74e8cea47a2a9ba3640c31af5164a4ff963e03ef24af8df9302"
+    "previewModeId": "1d6304196b3b4599d5aa6bd04f2e949e",
+    "previewModeSigningKey": "f5a2f9ea2912dfddbedddd25da1101e4352c207e23c471ba4fa36d5e890a5b08",
+    "previewModeEncryptionKey": "e12e8d46eb9cf1a40d413dc55e16a3621ae5f9656abd11d1e60e38c6e9c5bcbb"
   }
 }

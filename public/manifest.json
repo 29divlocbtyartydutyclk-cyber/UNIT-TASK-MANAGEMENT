@@ -1,8 +1,8 @@
 {
   "name": "Unit Task Management",
   "short_name": "Unit Tasks",
-  "description": "Unit daily task management dashboard",
-  "start_url": "/dashboard",
+  "description": "Unit task management and course preparation platform",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#D4DE95",
   "theme_color": "#394E26",

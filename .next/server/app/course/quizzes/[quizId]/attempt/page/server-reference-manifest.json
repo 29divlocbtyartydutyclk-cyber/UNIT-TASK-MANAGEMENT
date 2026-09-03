@@ -1,0 +1,27 @@
+{
+  "node": {
+    "4011a4bacab14bf154dd43c948328812354deb627f": {
+      "workers": {
+        "app/course/quizzes/[quizId]/attempt/page": {
+          "moduleId": 89468,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "startCourseAttempt",
+      "filename": "app/actions/course-attempts.ts"
+    },
+    "4048ecc220944666b7b1c155b2d401abbe23deed0f": {
+      "workers": {
+        "app/course/quizzes/[quizId]/attempt/page": {
+          "moduleId": 89468,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "submitCourseAttempt",
+      "filename": "app/actions/course-attempts.ts"
+    }
+  },
+  "edge": {}
+}

@@ -1,0 +1,3 @@
+{
+  "/api/cron/course-notify/route": "app/api/cron/course-notify/route.js"
+}

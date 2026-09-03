@@ -1,6 +1,28 @@
 import { PrismaClient } from "@prisma/client";
+import bcrypt from "bcryptjs";
+import { COURSE_ADMIN_SERVICE_NUMBER } from "@/lib/course/constants";
 
 const prisma = new PrismaClient();
+
+async function seedCourseAdmin() {
+  const password = process.env.COURSE_ADMIN_PASSWORD;
+  if (!password) return;
+  const name = process.env.COURSE_ADMIN_NAME ?? "Administrator";
+  const passwordHash = await bcrypt.hash(password, 10);
+
+  await prisma.courseUser.upsert({
+    where: { serviceNumber: COURSE_ADMIN_SERVICE_NUMBER },
+    update: {},
+    create: {
+      serviceNumber: COURSE_ADMIN_SERVICE_NUMBER,
+      passwordHash,
+      name,
+      role: "ADMIN",
+      status: "APPROVED",
+      category: null,
+    },
+  });
+}
 
 function daysFromToday(offset: number): Date {
   const d = new Date();
@@ -15,6 +37,8 @@ async function main() {
     update: {},
     create: { id: 1 },
   });
+
+  await seedCourseAdmin();
 
   await prisma.task.deleteMany({});
 

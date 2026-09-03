@@ -1,0 +1,16 @@
+{
+  "node": {
+    "40dd4f1208af8c1beabe3585e4dd4d8d4cd8966de3": {
+      "workers": {
+        "app/course/register/page": {
+          "moduleId": 6858,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "courseRegister",
+      "filename": "app/actions/course-auth.ts"
+    }
+  },
+  "edge": {}
+}

@@ -48,3 +48,7 @@ next-env.d.ts
 
 # Android app signing key - private, never commit
 /keystore
+
+# uploaded course materials - not committed, provisioned per-deployment
+/storage/course-uploads/*
+!/storage/course-uploads/.gitkeep

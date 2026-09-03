@@ -1,0 +1,16 @@
+{
+  "node": {
+    "40347c1d4a306a0c500c9f27d60e025223cd8ad398": {
+      "workers": {
+        "app/course/admin/login/page": {
+          "moduleId": 9484,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "courseLogin",
+      "filename": "app/actions/course-auth.ts"
+    }
+  },
+  "edge": {}
+}

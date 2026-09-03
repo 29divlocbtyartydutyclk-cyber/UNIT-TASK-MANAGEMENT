@@ -48,12 +48,21 @@
       "namedRegex": "^/course/api/files/(?<nxtPdocumentId>[^/]+?)(?:/)?$"
     },
     {
-      "page": "/course/courses/[courseId]",
+      "page": "/course/courses/[category]",
       "regex": "^/course/courses/([^/]+?)(?:/)?$",
       "routeKeys": {
+        "nxtPcategory": "nxtPcategory"
+      },
+      "namedRegex": "^/course/courses/(?<nxtPcategory>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/course/courses/[category]/[courseId]",
+      "regex": "^/course/courses/([^/]+?)/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPcategory": "nxtPcategory",
         "nxtPcourseId": "nxtPcourseId"
       },
-      "namedRegex": "^/course/courses/(?<nxtPcourseId>[^/]+?)(?:/)?$"
+      "namedRegex": "^/course/courses/(?<nxtPcategory>[^/]+?)/(?<nxtPcourseId>[^/]+?)(?:/)?$"
     },
     {
       "page": "/course/quizzes/[quizId]/attempt",
@@ -71,6 +80,23 @@
         "nxtPattemptId": "nxtPattemptId"
       },
       "namedRegex": "^/course/quizzes/(?<nxtPquizId>[^/]+?)/result/(?<nxtPattemptId>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/vts/admin/dashboard/[type]/[value]",
+      "regex": "^/vts/admin/dashboard/([^/]+?)/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPtype": "nxtPtype",
+        "nxtPvalue": "nxtPvalue"
+      },
+      "namedRegex": "^/vts/admin/dashboard/(?<nxtPtype>[^/]+?)/(?<nxtPvalue>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/vts/driver/summary/[movementId]",
+      "regex": "^/vts/driver/summary/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPmovementId": "nxtPmovementId"
+      },
+      "namedRegex": "^/vts/driver/summary/(?<nxtPmovementId>[^/]+?)(?:/)?$"
     }
   ],
   "staticRoutes": [
@@ -117,6 +143,12 @@
       "namedRegex": "^/calendar(?:/)?$"
     },
     {
+      "page": "/course",
+      "regex": "^/course(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/course(?:/)?$"
+    },
+    {
       "page": "/course/admin",
       "regex": "^/course/admin(?:/)?$",
       "routeKeys": {},
@@ -129,40 +161,28 @@
       "namedRegex": "^/course/admin/courses(?:/)?$"
     },
     {
+      "page": "/course/admin/login",
+      "regex": "^/course/admin/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/course/admin/login(?:/)?$"
+    },
+    {
+      "page": "/course/admin/results",
+      "regex": "^/course/admin/results(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/course/admin/results(?:/)?$"
+    },
+    {
       "page": "/course/admin/settings",
       "regex": "^/course/admin/settings(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/course/admin/settings(?:/)?$"
     },
     {
-      "page": "/course/admin/users",
-      "regex": "^/course/admin/users(?:/)?$",
+      "page": "/course/participant",
+      "regex": "^/course/participant(?:/)?$",
       "routeKeys": {},
-      "namedRegex": "^/course/admin/users(?:/)?$"
-    },
-    {
-      "page": "/course/courses",
-      "regex": "^/course/courses(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/course/courses(?:/)?$"
-    },
-    {
-      "page": "/course/login",
-      "regex": "^/course/login(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/course/login(?:/)?$"
-    },
-    {
-      "page": "/course/pending-approval",
-      "regex": "^/course/pending\\-approval(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/course/pending\\-approval(?:/)?$"
-    },
-    {
-      "page": "/course/register",
-      "regex": "^/course/register(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/course/register(?:/)?$"
+      "namedRegex": "^/course/participant(?:/)?$"
     },
     {
       "page": "/dashboard",
@@ -193,6 +213,78 @@
       "regex": "^/tasks(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/tasks(?:/)?$"
+    },
+    {
+      "page": "/vts",
+      "regex": "^/vts(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/vts(?:/)?$"
+    },
+    {
+      "page": "/vts/admin",
+      "regex": "^/vts/admin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/vts/admin(?:/)?$"
+    },
+    {
+      "page": "/vts/admin/alerts",
+      "regex": "^/vts/admin/alerts(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/vts/admin/alerts(?:/)?$"
+    },
+    {
+      "page": "/vts/admin/drivers",
+      "regex": "^/vts/admin/drivers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/vts/admin/drivers(?:/)?$"
+    },
+    {
+      "page": "/vts/admin/login",
+      "regex": "^/vts/admin/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/vts/admin/login(?:/)?$"
+    },
+    {
+      "page": "/vts/admin/map",
+      "regex": "^/vts/admin/map(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/vts/admin/map(?:/)?$"
+    },
+    {
+      "page": "/vts/admin/mileage",
+      "regex": "^/vts/admin/mileage(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/vts/admin/mileage(?:/)?$"
+    },
+    {
+      "page": "/vts/admin/settings",
+      "regex": "^/vts/admin/settings(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/vts/admin/settings(?:/)?$"
+    },
+    {
+      "page": "/vts/admin/vehicles",
+      "regex": "^/vts/admin/vehicles(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/vts/admin/vehicles(?:/)?$"
+    },
+    {
+      "page": "/vts/driver/active",
+      "regex": "^/vts/driver/active(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/vts/driver/active(?:/)?$"
+    },
+    {
+      "page": "/vts/driver/dashboard",
+      "regex": "^/vts/driver/dashboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/vts/driver/dashboard(?:/)?$"
+    },
+    {
+      "page": "/vts/driver/login",
+      "regex": "^/vts/driver/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/vts/driver/login(?:/)?$"
     }
   ],
   "dataRoutes": [],

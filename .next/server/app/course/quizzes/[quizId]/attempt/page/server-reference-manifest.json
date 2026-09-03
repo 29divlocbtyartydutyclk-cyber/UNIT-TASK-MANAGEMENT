@@ -1,6 +1,6 @@
 {
   "node": {
-    "4011a4bacab14bf154dd43c948328812354deb627f": {
+    "40ac7a110b3c7b7f9a518420a7c2a616eedf3b39cf": {
       "workers": {
         "app/course/quizzes/[quizId]/attempt/page": {
           "moduleId": 89468,
@@ -11,7 +11,7 @@
       "exportedName": "startCourseAttempt",
       "filename": "app/actions/course-attempts.ts"
     },
-    "4048ecc220944666b7b1c155b2d401abbe23deed0f": {
+    "40bb2491ca6e1b448d4955445fe986534e77072b8a": {
       "workers": {
         "app/course/quizzes/[quizId]/attempt/page": {
           "moduleId": 89468,

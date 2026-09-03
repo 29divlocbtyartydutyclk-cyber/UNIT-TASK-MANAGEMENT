@@ -47,6 +47,6 @@ export async function sendCoursePushToAll(payload: CoursePushPayload) {
 }
 
 export async function sendCoursePushToCategory(category: CourseCategoryValue, payload: CoursePushPayload) {
-  const subscriptions = await prisma.coursePushSubscription.findMany({ where: { user: { category } } });
+  const subscriptions = await prisma.coursePushSubscription.findMany({ where: { category } });
   await dispatch(subscriptions, payload);
 }

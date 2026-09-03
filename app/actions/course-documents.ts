@@ -10,7 +10,7 @@ import { sendCoursePushToCategory } from "@/lib/course/push";
 import type { CourseActionResult } from "@/app/actions/course-auth";
 
 export async function uploadCourseDocument(formData: FormData): Promise<CourseActionResult> {
-  const session = await requireCourseAdmin();
+  await requireCourseAdmin();
 
   const courseId = String(formData.get("courseId") ?? "");
   const title = String(formData.get("title") ?? "");
@@ -48,17 +48,16 @@ export async function uploadCourseDocument(formData: FormData): Promise<CourseAc
       originalName: file.name,
       mimeType: file.type,
       sizeBytes: file.size,
-      uploadedById: session.sub,
     },
   });
 
   revalidatePath(`/course/admin/courses/${course.id}`);
-  revalidatePath(`/course/courses/${course.id}`);
+  revalidatePath(`/course/courses/${course.category}/${course.id}`);
 
   sendCoursePushToCategory(course.category, {
     title: "New course material",
     body: `${course.title}: ${parsedMeta.data.title}`,
-    url: `/course/courses/${course.id}`,
+    url: `/course/courses/${course.category}/${course.id}`,
   }).catch(() => {});
 
   return { success: true };
@@ -66,12 +65,15 @@ export async function uploadCourseDocument(formData: FormData): Promise<CourseAc
 
 export async function deleteCourseDocument(documentId: string): Promise<void> {
   await requireCourseAdmin();
-  const document = await prisma.courseDocument.findUnique({ where: { id: documentId } });
+  const document = await prisma.courseDocument.findUnique({
+    where: { id: documentId },
+    include: { course: true },
+  });
   if (!document) return;
 
   await prisma.courseDocument.delete({ where: { id: documentId } });
   await deleteCourseFile(document.storedFilePath);
 
   revalidatePath(`/course/admin/courses/${document.courseId}`);
-  revalidatePath(`/course/courses/${document.courseId}`);
+  revalidatePath(`/course/courses/${document.course.category}/${document.courseId}`);
 }

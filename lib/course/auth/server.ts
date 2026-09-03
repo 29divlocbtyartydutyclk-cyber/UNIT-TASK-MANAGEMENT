@@ -15,8 +15,8 @@ export async function getCourseSession(): Promise<CourseSessionPayload | null> {
   return verifyCourseSessionToken(token);
 }
 
-export async function setCourseSessionCookie(payload: CourseSessionPayload) {
-  const token = await createCourseSessionToken(payload);
+export async function setCourseSessionCookie() {
+  const token = await createCourseSessionToken();
   const cookieStore = await cookies();
   cookieStore.set(COURSE_SESSION_COOKIE_NAME, token, {
     httpOnly: true,
@@ -36,14 +36,6 @@ export async function requireCourseAdmin(): Promise<CourseSessionPayload> {
   const session = await getCourseSession();
   if (!session || session.role !== "ADMIN") {
     throw new Error("Admin access required");
-  }
-  return session;
-}
-
-export async function requireCourseParticipant(): Promise<CourseSessionPayload> {
-  const session = await getCourseSession();
-  if (!session || session.role !== "PARTICIPANT" || session.status !== "APPROVED") {
-    throw new Error("Approved participant access required");
   }
   return session;
 }

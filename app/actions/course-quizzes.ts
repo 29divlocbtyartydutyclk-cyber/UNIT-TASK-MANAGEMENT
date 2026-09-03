@@ -23,7 +23,7 @@ export async function createCourseQuiz(input: unknown): Promise<CourseActionResu
   sendCoursePushToCategory(course.category, {
     title: "New quiz available",
     body: `${course.title}: ${quiz.title}`,
-    url: `/course/courses/${course.id}`,
+    url: `/course/courses/${course.category}/${course.id}`,
   }).catch(() => {});
 
   return { success: true };

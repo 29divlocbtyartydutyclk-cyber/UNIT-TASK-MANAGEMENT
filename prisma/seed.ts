@@ -1,27 +1,30 @@
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
-import { COURSE_ADMIN_SERVICE_NUMBER } from "@/lib/course/constants";
 
 const prisma = new PrismaClient();
 
 async function seedCourseAdmin() {
   const password = process.env.COURSE_ADMIN_PASSWORD;
   if (!password) return;
-  const name = process.env.COURSE_ADMIN_NAME ?? "Administrator";
-  const passwordHash = await bcrypt.hash(password, 10);
 
-  await prisma.courseUser.upsert({
-    where: { serviceNumber: COURSE_ADMIN_SERVICE_NUMBER },
-    update: {},
-    create: {
-      serviceNumber: COURSE_ADMIN_SERVICE_NUMBER,
-      passwordHash,
-      name,
-      role: "ADMIN",
-      status: "APPROVED",
-      category: null,
-    },
-  });
+  const existing = await prisma.courseSettings.findUnique({ where: { id: 1 } });
+  if (existing) return;
+
+  const adminPasswordHash = await bcrypt.hash(password, 10);
+  await prisma.courseSettings.create({ data: { id: 1, adminPasswordHash } });
+}
+
+async function seedVtsSettings() {
+  const adminPassword = process.env.VTS_ADMIN_PASSWORD;
+  const driverPassword = process.env.VTS_DRIVER_PASSWORD;
+  if (!adminPassword || !driverPassword) return;
+
+  const existing = await prisma.vtsSettings.findUnique({ where: { id: 1 } });
+  if (existing) return;
+
+  const adminPasswordHash = await bcrypt.hash(adminPassword, 10);
+  const driverPasswordHash = await bcrypt.hash(driverPassword, 10);
+  await prisma.vtsSettings.create({ data: { id: 1, adminPasswordHash, driverPasswordHash } });
 }
 
 function daysFromToday(offset: number): Date {
@@ -39,6 +42,7 @@ async function main() {
   });
 
   await seedCourseAdmin();
+  await seedVtsSettings();
 
   await prisma.task.deleteMany({});
 

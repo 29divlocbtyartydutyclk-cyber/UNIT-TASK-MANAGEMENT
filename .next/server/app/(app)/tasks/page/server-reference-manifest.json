@@ -1,6 +1,6 @@
 {
   "node": {
-    "00407bbcd9c6e349aa398aefd271a2d50461b00dd0": {
+    "00b8f98ec7942d4784cabca848ebdda6c4faa23a8f": {
       "workers": {
         "app/(app)/tasks/page": {
           "moduleId": 38848,
@@ -11,7 +11,7 @@
       "exportedName": "logout",
       "filename": "app/actions/auth.ts"
     },
-    "40d4d032f8cbcee5db0c6355cd69013d3ebcb6b438": {
+    "407ab5067a0aa4533395b3b12cc1f1db40a6de2de6": {
       "workers": {
         "app/(app)/tasks/page": {
           "moduleId": 38848,
@@ -22,7 +22,7 @@
       "exportedName": "createTask",
       "filename": "app/actions/tasks.ts"
     },
-    "603397dae43739b0e35428222efcddeab295106174": {
+    "605a5fd35d5014199141cac78830097176e1f7838b": {
       "workers": {
         "app/(app)/tasks/page": {
           "moduleId": 38848,
@@ -33,7 +33,7 @@
       "exportedName": "updateTask",
       "filename": "app/actions/tasks.ts"
     },
-    "40d102c1a545c71d7b8188ab0459d0051c966b1cb7": {
+    "4016eae8ef12f24bedbba7cf4a28966b3ab3246e36": {
       "workers": {
         "app/(app)/tasks/page": {
           "moduleId": 38848,
@@ -44,7 +44,7 @@
       "exportedName": "deleteTask",
       "filename": "app/actions/tasks.ts"
     },
-    "60e9a01c871048f8e09e0b4e0e4b5d535255805101": {
+    "603c09b16fc3a50841e16d395dc86f7750fdcecd47": {
       "workers": {
         "app/(app)/tasks/page": {
           "moduleId": 38848,

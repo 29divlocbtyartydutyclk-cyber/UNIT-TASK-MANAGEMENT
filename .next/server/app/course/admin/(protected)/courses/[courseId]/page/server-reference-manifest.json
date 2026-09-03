@@ -1,0 +1,71 @@
+{
+  "node": {
+    "006e653eda7e0c1cefb55f71327be46c8339c59d37": {
+      "workers": {
+        "app/course/admin/(protected)/courses/[courseId]/page": {
+          "moduleId": 11707,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "courseLogout",
+      "filename": "app/actions/course-auth.ts"
+    },
+    "40347c1d4a306a0c500c9f27d60e025223cd8ad398": {
+      "workers": {
+        "app/course/admin/(protected)/courses/[courseId]/page": {
+          "moduleId": 11707,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "courseLogin",
+      "filename": "app/actions/course-auth.ts"
+    },
+    "40ef2a156d3f5d443f1eed19d3cf20412fa5947bd4": {
+      "workers": {
+        "app/course/admin/(protected)/courses/[courseId]/page": {
+          "moduleId": 11707,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "changeCourseAdminPassword",
+      "filename": "app/actions/course-auth.ts"
+    },
+    "40ac5ecdc940014801826b3d6bc698b5dc310ff64f": {
+      "workers": {
+        "app/course/admin/(protected)/courses/[courseId]/page": {
+          "moduleId": 11707,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "uploadCourseDocument",
+      "filename": "app/actions/course-documents.ts"
+    },
+    "40f1f72a5b412e224674491914469fbf93fa3189ad": {
+      "workers": {
+        "app/course/admin/(protected)/courses/[courseId]/page": {
+          "moduleId": 11707,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "deleteCourseDocument",
+      "filename": "app/actions/course-documents.ts"
+    },
+    "40e30654fe9be91fdc99d8a4e8c2a9af675f5704f8": {
+      "workers": {
+        "app/course/admin/(protected)/courses/[courseId]/page": {
+          "moduleId": 11707,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "createCourseQuiz",
+      "filename": "app/actions/course-quizzes.ts"
+    }
+  },
+  "edge": {}
+}

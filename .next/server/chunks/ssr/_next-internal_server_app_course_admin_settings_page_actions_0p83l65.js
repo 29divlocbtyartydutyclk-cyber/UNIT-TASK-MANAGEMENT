@@ -1,3 +1,0 @@
-module.exports=[71672,a=>{"use strict";var b=a.i(37061);a.s([],52336),a.i(52336),a.s(["0064bacfcb5247fad5eaee9eda949622ad7d4bdc4b",()=>b.courseLogout,"403fd47acfd3ff4d028f597bbcea76e3fbef883140",()=>b.courseLogin,"40b65dd7bbb1c6b3441aa847592b2aa297d0e68d98",()=>b.changeCourseAdminPassword,"40dd4f1208af8c1beabe3585e4dd4d8d4cd8966de3",()=>b.courseRegister],71672)}];
-
-//# sourceMappingURL=_next-internal_server_app_course_admin_settings_page_actions_0p83l65.js.map

@@ -15,6 +15,10 @@
 
 # next.js
 /out/
+# build cache only - not needed to run the app, and this repo ships the
+# prebuilt .next output directly, so incremental-build cache is dead weight
+/.next/cache/
+/.next/dev/
 
 # production
 /build

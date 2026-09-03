@@ -19,13 +19,21 @@ export default function Home() {
           </Link>
 
           <Link
-            href="/course/login"
+            href="/course"
             className="block rounded-lg bg-white shadow p-5 text-left hover:shadow-md border border-transparent hover:border-study-300 transition"
           >
             <p className="font-semibold text-study-800">E Pre Course</p>
             <p className="text-sm text-sand-600 mt-1">
               Course materials and quizzes for Officers, JCOs, and Other Ranks.
             </p>
+          </Link>
+
+          <Link
+            href="/vts"
+            className="block rounded-lg bg-white shadow p-5 text-left hover:shadow-md border border-transparent hover:border-amber-400 transition"
+          >
+            <p className="font-semibold text-amber-800">Vehicle Tracking System</p>
+            <p className="text-sm text-sand-600 mt-1">Live vehicle movement monitoring for drivers and admin.</p>
           </Link>
         </div>
       </div>

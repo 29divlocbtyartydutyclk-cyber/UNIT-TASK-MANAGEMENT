@@ -1,15 +1,8 @@
 import { SignJWT, jwtVerify } from "jose";
 
-export type CourseRole = "ADMIN" | "PARTICIPANT";
-export type CourseCategory = "OFFICER" | "JCO" | "OR";
-export type CourseApprovalStatus = "PENDING" | "APPROVED" | "REJECTED";
-
-export type CourseSessionPayload = {
-  sub: string;
-  role: CourseRole;
-  category: CourseCategory | null;
-  status: CourseApprovalStatus;
-};
+// The only account in Course is the fixed admin - there is no participant
+// login, so a valid session always means "signed in as admin".
+export type CourseSessionPayload = { role: "ADMIN" };
 
 export const COURSE_SESSION_COOKIE_NAME = "course_session";
 export const COURSE_SESSION_DURATION_SECONDS = 6 * 60 * 60;
@@ -20,8 +13,8 @@ function getSecretKey() {
   return new TextEncoder().encode(secret);
 }
 
-export async function createCourseSessionToken(payload: CourseSessionPayload): Promise<string> {
-  return new SignJWT({ ...payload })
+export async function createCourseSessionToken(): Promise<string> {
+  return new SignJWT({ role: "ADMIN" })
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
     .setExpirationTime(`${COURSE_SESSION_DURATION_SECONDS}s`)
@@ -31,21 +24,8 @@ export async function createCourseSessionToken(payload: CourseSessionPayload): P
 export async function verifyCourseSessionToken(token: string): Promise<CourseSessionPayload | null> {
   try {
     const { payload } = await jwtVerify(token, getSecretKey());
-    if (
-      typeof payload.sub === "string" &&
-      (payload.role === "ADMIN" || payload.role === "PARTICIPANT") &&
-      (payload.category === null ||
-        payload.category === "OFFICER" ||
-        payload.category === "JCO" ||
-        payload.category === "OR") &&
-      (payload.status === "PENDING" || payload.status === "APPROVED" || payload.status === "REJECTED")
-    ) {
-      return {
-        sub: payload.sub,
-        role: payload.role,
-        category: payload.category,
-        status: payload.status,
-      };
+    if (payload.role === "ADMIN") {
+      return { role: "ADMIN" };
     }
     return null;
   } catch {

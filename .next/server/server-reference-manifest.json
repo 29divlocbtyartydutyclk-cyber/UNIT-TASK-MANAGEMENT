@@ -1,6 +1,6 @@
 {
   "node": {
-    "00407bbcd9c6e349aa398aefd271a2d50461b00dd0": {
+    "00b8f98ec7942d4784cabca848ebdda6c4faa23a8f": {
       "workers": {
         "app/(app)/calendar/page": {
           "moduleId": 41320,
@@ -26,7 +26,7 @@
       "filename": "app/actions/auth.ts",
       "exportedName": "logout"
     },
-    "40d4d032f8cbcee5db0c6355cd69013d3ebcb6b438": {
+    "407ab5067a0aa4533395b3b12cc1f1db40a6de2de6": {
       "workers": {
         "app/(app)/calendar/page": {
           "moduleId": 41320,
@@ -47,7 +47,7 @@
       "filename": "app/actions/tasks.ts",
       "exportedName": "createTask"
     },
-    "603397dae43739b0e35428222efcddeab295106174": {
+    "605a5fd35d5014199141cac78830097176e1f7838b": {
       "workers": {
         "app/(app)/calendar/page": {
           "moduleId": 41320,
@@ -68,7 +68,7 @@
       "filename": "app/actions/tasks.ts",
       "exportedName": "updateTask"
     },
-    "60e9a01c871048f8e09e0b4e0e4b5d535255805101": {
+    "603c09b16fc3a50841e16d395dc86f7750fdcecd47": {
       "workers": {
         "app/(app)/calendar/page": {
           "moduleId": 41320,
@@ -89,7 +89,7 @@
       "filename": "app/actions/tasks.ts",
       "exportedName": "updateTaskStatus"
     },
-    "40f2985c1f55f5267ac2d6d8ad53a3d3d332edf610": {
+    "4042f2ae2a724c0cd2afcb1e57c15a4dc297f7e5e1": {
       "workers": {
         "app/(app)/dashboard/page": {
           "moduleId": 90066,
@@ -100,7 +100,7 @@
       "filename": "app/actions/push.ts",
       "exportedName": "subscribeToPush"
     },
-    "4001b23d7285f6e4cd250acb0e6a5124cf94113eb6": {
+    "408eb6c96180b47e3d3c8a8bfab709a7bf09dcb5c2": {
       "workers": {
         "app/(app)/dashboard/page": {
           "moduleId": 90066,
@@ -111,7 +111,7 @@
       "filename": "app/actions/push.ts",
       "exportedName": "unsubscribeFromPush"
     },
-    "409b36e5b19a6bddf935d6133795f02ae4e37ce3b3": {
+    "40f2c325932b903ed93d33ea589aa923478b7c34df": {
       "workers": {
         "app/(app)/settings/page": {
           "moduleId": 29984,
@@ -122,7 +122,7 @@
       "filename": "app/actions/settings.ts",
       "exportedName": "updateSettings"
     },
-    "60e9b59fe7d22587b058e91d26cbfd336b49b66d0f": {
+    "6010d5f8405f8e561eedc44c8c0751f503ecc94556": {
       "workers": {
         "app/(app)/settings/page": {
           "moduleId": 29984,
@@ -133,7 +133,7 @@
       "filename": "app/actions/auth.ts",
       "exportedName": "changeRolePassword"
     },
-    "40d102c1a545c71d7b8188ab0459d0051c966b1cb7": {
+    "4016eae8ef12f24bedbba7cf4a28966b3ab3246e36": {
       "workers": {
         "app/(app)/tasks/page": {
           "moduleId": 38848,
@@ -144,50 +144,35 @@
       "filename": "app/actions/tasks.ts",
       "exportedName": "deleteTask"
     },
-    "0064bacfcb5247fad5eaee9eda949622ad7d4bdc4b": {
+    "006e653eda7e0c1cefb55f71327be46c8339c59d37": {
       "workers": {
-        "app/course/admin/courses/[courseId]/page": {
-          "moduleId": 16222,
+        "app/course/admin/(protected)/courses/[courseId]/page": {
+          "moduleId": 11707,
           "async": false,
           "codeHash": null
         },
-        "app/course/admin/courses/[courseId]/quizzes/[quizId]/page": {
-          "moduleId": 51650,
+        "app/course/admin/(protected)/courses/[courseId]/quizzes/[quizId]/page": {
+          "moduleId": 73556,
           "async": false,
           "codeHash": null
         },
-        "app/course/admin/courses/page": {
-          "moduleId": 36618,
+        "app/course/admin/(protected)/courses/page": {
+          "moduleId": 88826,
           "async": false,
           "codeHash": null
         },
-        "app/course/admin/page": {
-          "moduleId": 84270,
+        "app/course/admin/(protected)/page": {
+          "moduleId": 52731,
           "async": false,
           "codeHash": null
         },
-        "app/course/admin/settings/page": {
-          "moduleId": 71672,
+        "app/course/admin/(protected)/results/page": {
+          "moduleId": 41043,
           "async": false,
           "codeHash": null
         },
-        "app/course/admin/users/page": {
-          "moduleId": 66575,
-          "async": false,
-          "codeHash": null
-        },
-        "app/course/courses/[courseId]/page": {
-          "moduleId": 69510,
-          "async": false,
-          "codeHash": null
-        },
-        "app/course/courses/page": {
-          "moduleId": 87187,
-          "async": false,
-          "codeHash": null
-        },
-        "app/course/pending-approval/page": {
-          "moduleId": 78264,
+        "app/course/admin/(protected)/settings/page": {
+          "moduleId": 42951,
           "async": false,
           "codeHash": null
         }
@@ -195,55 +180,40 @@
       "filename": "app/actions/course-auth.ts",
       "exportedName": "courseLogout"
     },
-    "403fd47acfd3ff4d028f597bbcea76e3fbef883140": {
+    "40347c1d4a306a0c500c9f27d60e025223cd8ad398": {
       "workers": {
-        "app/course/admin/courses/[courseId]/page": {
-          "moduleId": 16222,
+        "app/course/admin/(protected)/courses/[courseId]/page": {
+          "moduleId": 11707,
           "async": false,
           "codeHash": null
         },
-        "app/course/admin/courses/[courseId]/quizzes/[quizId]/page": {
-          "moduleId": 51650,
+        "app/course/admin/(protected)/courses/[courseId]/quizzes/[quizId]/page": {
+          "moduleId": 73556,
           "async": false,
           "codeHash": null
         },
-        "app/course/admin/courses/page": {
-          "moduleId": 36618,
+        "app/course/admin/(protected)/courses/page": {
+          "moduleId": 88826,
           "async": false,
           "codeHash": null
         },
-        "app/course/admin/page": {
-          "moduleId": 84270,
+        "app/course/admin/(protected)/page": {
+          "moduleId": 52731,
           "async": false,
           "codeHash": null
         },
-        "app/course/admin/settings/page": {
-          "moduleId": 71672,
+        "app/course/admin/(protected)/results/page": {
+          "moduleId": 41043,
           "async": false,
           "codeHash": null
         },
-        "app/course/admin/users/page": {
-          "moduleId": 66575,
+        "app/course/admin/(protected)/settings/page": {
+          "moduleId": 42951,
           "async": false,
           "codeHash": null
         },
-        "app/course/courses/[courseId]/page": {
-          "moduleId": 69510,
-          "async": false,
-          "codeHash": null
-        },
-        "app/course/courses/page": {
-          "moduleId": 87187,
-          "async": false,
-          "codeHash": null
-        },
-        "app/course/login/page": {
-          "moduleId": 83944,
-          "async": false,
-          "codeHash": null
-        },
-        "app/course/pending-approval/page": {
-          "moduleId": 78264,
+        "app/course/admin/login/page": {
+          "moduleId": 9484,
           "async": false,
           "codeHash": null
         }
@@ -251,50 +221,35 @@
       "filename": "app/actions/course-auth.ts",
       "exportedName": "courseLogin"
     },
-    "40b65dd7bbb1c6b3441aa847592b2aa297d0e68d98": {
+    "40ef2a156d3f5d443f1eed19d3cf20412fa5947bd4": {
       "workers": {
-        "app/course/admin/courses/[courseId]/page": {
-          "moduleId": 16222,
+        "app/course/admin/(protected)/courses/[courseId]/page": {
+          "moduleId": 11707,
           "async": false,
           "codeHash": null
         },
-        "app/course/admin/courses/[courseId]/quizzes/[quizId]/page": {
-          "moduleId": 51650,
+        "app/course/admin/(protected)/courses/[courseId]/quizzes/[quizId]/page": {
+          "moduleId": 73556,
           "async": false,
           "codeHash": null
         },
-        "app/course/admin/courses/page": {
-          "moduleId": 36618,
+        "app/course/admin/(protected)/courses/page": {
+          "moduleId": 88826,
           "async": false,
           "codeHash": null
         },
-        "app/course/admin/page": {
-          "moduleId": 84270,
+        "app/course/admin/(protected)/page": {
+          "moduleId": 52731,
           "async": false,
           "codeHash": null
         },
-        "app/course/admin/settings/page": {
-          "moduleId": 71672,
+        "app/course/admin/(protected)/results/page": {
+          "moduleId": 41043,
           "async": false,
           "codeHash": null
         },
-        "app/course/admin/users/page": {
-          "moduleId": 66575,
-          "async": false,
-          "codeHash": null
-        },
-        "app/course/courses/[courseId]/page": {
-          "moduleId": 69510,
-          "async": false,
-          "codeHash": null
-        },
-        "app/course/courses/page": {
-          "moduleId": 87187,
-          "async": false,
-          "codeHash": null
-        },
-        "app/course/pending-approval/page": {
-          "moduleId": 78264,
+        "app/course/admin/(protected)/settings/page": {
+          "moduleId": 42951,
           "async": false,
           "codeHash": null
         }
@@ -302,66 +257,10 @@
       "filename": "app/actions/course-auth.ts",
       "exportedName": "changeCourseAdminPassword"
     },
-    "40dd4f1208af8c1beabe3585e4dd4d8d4cd8966de3": {
+    "400a705c9a8832581122ac32ca37efb5429e0c0ea9": {
       "workers": {
-        "app/course/admin/courses/[courseId]/page": {
-          "moduleId": 16222,
-          "async": false,
-          "codeHash": null
-        },
-        "app/course/admin/courses/[courseId]/quizzes/[quizId]/page": {
-          "moduleId": 51650,
-          "async": false,
-          "codeHash": null
-        },
-        "app/course/admin/courses/page": {
-          "moduleId": 36618,
-          "async": false,
-          "codeHash": null
-        },
-        "app/course/admin/page": {
-          "moduleId": 84270,
-          "async": false,
-          "codeHash": null
-        },
-        "app/course/admin/settings/page": {
-          "moduleId": 71672,
-          "async": false,
-          "codeHash": null
-        },
-        "app/course/admin/users/page": {
-          "moduleId": 66575,
-          "async": false,
-          "codeHash": null
-        },
-        "app/course/courses/[courseId]/page": {
-          "moduleId": 69510,
-          "async": false,
-          "codeHash": null
-        },
-        "app/course/courses/page": {
-          "moduleId": 87187,
-          "async": false,
-          "codeHash": null
-        },
-        "app/course/pending-approval/page": {
-          "moduleId": 78264,
-          "async": false,
-          "codeHash": null
-        },
-        "app/course/register/page": {
-          "moduleId": 6858,
-          "async": false,
-          "codeHash": null
-        }
-      },
-      "filename": "app/actions/course-auth.ts",
-      "exportedName": "courseRegister"
-    },
-    "40237e0e2e8c907389eb851854291fbef9cb5e4fbe": {
-      "workers": {
-        "app/course/admin/courses/page": {
-          "moduleId": 36618,
+        "app/course/admin/(protected)/courses/page": {
+          "moduleId": 88826,
           "async": false,
           "codeHash": null
         }
@@ -369,10 +268,10 @@
       "filename": "app/actions/course-courses.ts",
       "exportedName": "createCourse"
     },
-    "4011017979a38ef8911c20ca8aefbf9ddc0127b674": {
+    "40ac5ecdc940014801826b3d6bc698b5dc310ff64f": {
       "workers": {
-        "app/course/admin/courses/[courseId]/page": {
-          "moduleId": 16222,
+        "app/course/admin/(protected)/courses/[courseId]/page": {
+          "moduleId": 11707,
           "async": false,
           "codeHash": null
         }
@@ -380,10 +279,10 @@
       "filename": "app/actions/course-documents.ts",
       "exportedName": "uploadCourseDocument"
     },
-    "407b0b627e59e5c712fdd2ddd191cd3b57e6b75d2e": {
+    "40f1f72a5b412e224674491914469fbf93fa3189ad": {
       "workers": {
-        "app/course/admin/courses/[courseId]/page": {
-          "moduleId": 16222,
+        "app/course/admin/(protected)/courses/[courseId]/page": {
+          "moduleId": 11707,
           "async": false,
           "codeHash": null
         }
@@ -391,10 +290,10 @@
       "filename": "app/actions/course-documents.ts",
       "exportedName": "deleteCourseDocument"
     },
-    "4042ab3982f6815d860c4c085ebdf4aa395caed9c7": {
+    "40e30654fe9be91fdc99d8a4e8c2a9af675f5704f8": {
       "workers": {
-        "app/course/admin/courses/[courseId]/page": {
-          "moduleId": 16222,
+        "app/course/admin/(protected)/courses/[courseId]/page": {
+          "moduleId": 11707,
           "async": false,
           "codeHash": null
         }
@@ -402,21 +301,10 @@
       "filename": "app/actions/course-quizzes.ts",
       "exportedName": "createCourseQuiz"
     },
-    "40688c296cd832625704367b113b8dc96ebf6057d4": {
+    "4008661f48d645ce1cbc7f64e09548b6f609b289b5": {
       "workers": {
-        "app/course/admin/courses/[courseId]/quizzes/[quizId]/page": {
-          "moduleId": 51650,
-          "async": false,
-          "codeHash": null
-        }
-      },
-      "filename": "app/actions/course-questions.ts",
-      "exportedName": "createCourseQuestion"
-    },
-    "40a4b77e1797ac3a44e6db8fd20eceeb620935ec2e": {
-      "workers": {
-        "app/course/admin/courses/[courseId]/quizzes/[quizId]/page": {
-          "moduleId": 51650,
+        "app/course/admin/(protected)/courses/[courseId]/quizzes/[quizId]/page": {
+          "moduleId": 73556,
           "async": false,
           "codeHash": null
         }
@@ -424,10 +312,21 @@
       "filename": "app/actions/course-questions.ts",
       "exportedName": "deleteCourseQuestion"
     },
-    "60c58130e5716a8230faa5d7263a34642b7b2d961d": {
+    "40402c30126bdc2dcadcc26d1fd59cfcbd09ff60c1": {
       "workers": {
-        "app/course/admin/courses/[courseId]/quizzes/[quizId]/page": {
-          "moduleId": 51650,
+        "app/course/admin/(protected)/courses/[courseId]/quizzes/[quizId]/page": {
+          "moduleId": 73556,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/course-questions.ts",
+      "exportedName": "createCourseQuestion"
+    },
+    "60a506e0279135947a53d30c268da721ada9219577": {
+      "workers": {
+        "app/course/admin/(protected)/courses/[courseId]/quizzes/[quizId]/page": {
+          "moduleId": 73556,
           "async": false,
           "codeHash": null
         }
@@ -435,40 +334,29 @@
       "filename": "app/actions/course-questions.ts",
       "exportedName": "updateCourseQuestion"
     },
-    "00e58a778fcf3d84d7c3986092a0c3cd109e9ae4b1": {
+    "0095e9ae5749a820aa47b27eb92ca35ddecf42f615": {
       "workers": {
-        "app/course/admin/users/page": {
-          "moduleId": 66575,
+        "app/course/admin/(protected)/results/page": {
+          "moduleId": 41043,
           "async": false,
           "codeHash": null
         }
       },
-      "filename": "app/actions/course-users.ts",
-      "exportedName": "listPendingCourseUsers"
+      "filename": "app/actions/course-results.ts",
+      "exportedName": "listCourseQuizResults"
     },
-    "40b7e1aa1167812f9969abcb97f4351f2363a08fc4": {
+    "40b4f2acc2cfa664d0a22b00ee346a8961e661b743": {
       "workers": {
-        "app/course/admin/users/page": {
-          "moduleId": 66575,
+        "app/course/admin/(protected)/results/page": {
+          "moduleId": 41043,
           "async": false,
           "codeHash": null
         }
       },
-      "filename": "app/actions/course-users.ts",
-      "exportedName": "rejectCourseUser"
+      "filename": "app/actions/course-results.ts",
+      "exportedName": "deleteCourseQuizResult"
     },
-    "40d78caf3b88d89b8b41d793bac0a09740db77ba38": {
-      "workers": {
-        "app/course/admin/users/page": {
-          "moduleId": 66575,
-          "async": false,
-          "codeHash": null
-        }
-      },
-      "filename": "app/actions/course-users.ts",
-      "exportedName": "approveCourseUser"
-    },
-    "4011a4bacab14bf154dd43c948328812354deb627f": {
+    "40ac7a110b3c7b7f9a518420a7c2a616eedf3b39cf": {
       "workers": {
         "app/course/quizzes/[quizId]/attempt/page": {
           "moduleId": 89468,
@@ -479,7 +367,7 @@
       "filename": "app/actions/course-attempts.ts",
       "exportedName": "startCourseAttempt"
     },
-    "4048ecc220944666b7b1c155b2d401abbe23deed0f": {
+    "40bb2491ca6e1b448d4955445fe986534e77072b8a": {
       "workers": {
         "app/course/quizzes/[quizId]/attempt/page": {
           "moduleId": 89468,
@@ -490,7 +378,7 @@
       "filename": "app/actions/course-attempts.ts",
       "exportedName": "submitCourseAttempt"
     },
-    "60bdbee78ee0a5c8f35e5a9efdf801295659b86baf": {
+    "60924af0c6dc839d6c01342bb7c6658875b97bd4fd": {
       "workers": {
         "app/login/page": {
           "moduleId": 51661,
@@ -500,8 +388,394 @@
       },
       "filename": "app/actions/auth.ts",
       "exportedName": "login"
+    },
+    "00f5bb61ea43a984d4d4736bd1d34c085a6a8f89a2": {
+      "workers": {
+        "app/vts/admin/(protected)/alerts/page": {
+          "moduleId": 83003,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/dashboard/[type]/[value]/page": {
+          "moduleId": 55881,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/drivers/page": {
+          "moduleId": 72949,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/map/page": {
+          "moduleId": 16527,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/mileage/page": {
+          "moduleId": 56156,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/page": {
+          "moduleId": 53953,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/settings/page": {
+          "moduleId": 30999,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/vehicles/page": {
+          "moduleId": 25646,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/driver/dashboard/page": {
+          "moduleId": 4745,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/vts-auth.ts",
+      "exportedName": "vtsLogout"
+    },
+    "401deb4b59d02ee31b0c2ca7cbb6c1760b8516a882": {
+      "workers": {
+        "app/vts/admin/(protected)/alerts/page": {
+          "moduleId": 83003,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/dashboard/[type]/[value]/page": {
+          "moduleId": 55881,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/drivers/page": {
+          "moduleId": 72949,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/map/page": {
+          "moduleId": 16527,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/mileage/page": {
+          "moduleId": 56156,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/page": {
+          "moduleId": 53953,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/settings/page": {
+          "moduleId": 30999,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/vehicles/page": {
+          "moduleId": 25646,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/driver/dashboard/page": {
+          "moduleId": 4745,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/driver/login/page": {
+          "moduleId": 68281,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/vts-auth.ts",
+      "exportedName": "vtsDriverLogin"
+    },
+    "40390713b1f2ac4e8142797c6f0cca6bb9e3303026": {
+      "workers": {
+        "app/vts/admin/(protected)/alerts/page": {
+          "moduleId": 83003,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/dashboard/[type]/[value]/page": {
+          "moduleId": 55881,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/drivers/page": {
+          "moduleId": 72949,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/map/page": {
+          "moduleId": 16527,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/mileage/page": {
+          "moduleId": 56156,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/page": {
+          "moduleId": 53953,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/settings/page": {
+          "moduleId": 30999,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/vehicles/page": {
+          "moduleId": 25646,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/driver/dashboard/page": {
+          "moduleId": 4745,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/vts-auth.ts",
+      "exportedName": "changeVtsDriverPassword"
+    },
+    "40e4ba2d221cc86c320f96515822040bc447221e97": {
+      "workers": {
+        "app/vts/admin/(protected)/alerts/page": {
+          "moduleId": 83003,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/dashboard/[type]/[value]/page": {
+          "moduleId": 55881,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/drivers/page": {
+          "moduleId": 72949,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/map/page": {
+          "moduleId": 16527,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/mileage/page": {
+          "moduleId": 56156,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/page": {
+          "moduleId": 53953,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/settings/page": {
+          "moduleId": 30999,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/vehicles/page": {
+          "moduleId": 25646,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/driver/dashboard/page": {
+          "moduleId": 4745,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/vts-auth.ts",
+      "exportedName": "changeVtsAdminPassword"
+    },
+    "40ed857f427ff6fdb7700fbb4ec547250d16e57838": {
+      "workers": {
+        "app/vts/admin/(protected)/alerts/page": {
+          "moduleId": 83003,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/dashboard/[type]/[value]/page": {
+          "moduleId": 55881,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/drivers/page": {
+          "moduleId": 72949,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/map/page": {
+          "moduleId": 16527,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/mileage/page": {
+          "moduleId": 56156,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/page": {
+          "moduleId": 53953,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/settings/page": {
+          "moduleId": 30999,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/(protected)/vehicles/page": {
+          "moduleId": 25646,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/admin/login/page": {
+          "moduleId": 8571,
+          "async": false,
+          "codeHash": null
+        },
+        "app/vts/driver/dashboard/page": {
+          "moduleId": 4745,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/vts-auth.ts",
+      "exportedName": "vtsAdminLogin"
+    },
+    "4047ce39c22d61e282979705f5f2f8218aefbfb08d": {
+      "workers": {
+        "app/vts/admin/(protected)/drivers/page": {
+          "moduleId": 72949,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/vts-drivers.ts",
+      "exportedName": "createVtsDriver"
+    },
+    "6057ab0a0c80ce7c87ca65410df9b515d5bf8493c3": {
+      "workers": {
+        "app/vts/admin/(protected)/drivers/page": {
+          "moduleId": 72949,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/vts-drivers.ts",
+      "exportedName": "updateVtsDriver"
+    },
+    "60afd25b4a9ccce6d21d0c6ad96638c1b837ab75d7": {
+      "workers": {
+        "app/vts/admin/(protected)/drivers/page": {
+          "moduleId": 72949,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/vts-drivers.ts",
+      "exportedName": "setVtsDriverStatus"
+    },
+    "004dd428687951a69c9bf0880f55325067e523c154": {
+      "workers": {
+        "app/vts/admin/(protected)/map/page": {
+          "moduleId": 16527,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/vts-live.ts",
+      "exportedName": "getVtsLiveState"
+    },
+    "4091ed41e9a766af2d9e65f134d66a7d62df4ff63e": {
+      "workers": {
+        "app/vts/admin/(protected)/mileage/page": {
+          "moduleId": 56156,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/vts-mileage.ts",
+      "exportedName": "upsertVtsCategoryMileage"
+    },
+    "404fadb01c1e438855cdfd04a2c3322d767bce83f2": {
+      "workers": {
+        "app/vts/admin/(protected)/vehicles/page": {
+          "moduleId": 25646,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/vts-vehicles.ts",
+      "exportedName": "createVtsVehicle"
+    },
+    "602f296d0415ed7c960132c98019fb8ec986073c91": {
+      "workers": {
+        "app/vts/admin/(protected)/vehicles/page": {
+          "moduleId": 25646,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/vts-vehicles.ts",
+      "exportedName": "updateVtsVehicle"
+    },
+    "60947b762e840ef0457ed8a1f8bbec0a83860f5d80": {
+      "workers": {
+        "app/vts/admin/(protected)/vehicles/page": {
+          "moduleId": 25646,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/vts-vehicles.ts",
+      "exportedName": "setVtsVehicleStatus"
+    },
+    "40dde8b5a8f86b5aada2116099b0f056d2ba3970a3": {
+      "workers": {
+        "app/vts/driver/active/page": {
+          "moduleId": 95161,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/vts-movements.ts",
+      "exportedName": "pingVtsMovement"
+    },
+    "40a2eae8745a1f57a335b162004f92f24c93dce2d6": {
+      "workers": {
+        "app/vts/driver/active/page": {
+          "moduleId": 95161,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/vts-movements.ts",
+      "exportedName": "endVtsMovement"
+    },
+    "40d0de751ac7007254cb23cd623227bf605fb7eb93": {
+      "workers": {
+        "app/vts/driver/dashboard/page": {
+          "moduleId": 4745,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/vts-movements.ts",
+      "exportedName": "startVtsMovement"
     }
   },
   "edge": {},
-  "encryptionKey": "xvgoNeh1WClZ1Bba+SQUNEGUNb5UnmxoWoWWgb5ZECU="
+  "encryptionKey": "48rv/I6PKAGWLjEGhsjfQXFbJDsqnID2qtUO+w04i4c="
 }

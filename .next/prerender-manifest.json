@@ -5,7 +5,7 @@
       "routeType": "page",
       "response": "complete",
       "compute": "static",
-      "htmlSize": 9394,
+      "htmlSize": 10141,
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -114,11 +114,11 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/course/login": {
+    "/course": {
       "routeType": "page",
       "response": "complete",
       "compute": "static",
-      "htmlSize": 9522,
+      "htmlSize": 10104,
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -131,8 +131,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/course/login",
-      "dataRoute": "/course/login.rsc",
+      "srcRoute": "/course",
+      "dataRoute": "/course.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -142,11 +142,11 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/course/pending-approval": {
+    "/course/admin/login": {
       "routeType": "page",
       "response": "complete",
       "compute": "static",
-      "htmlSize": 9265,
+      "htmlSize": 9645,
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -159,8 +159,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/course/pending-approval",
-      "dataRoute": "/course/pending-approval.rsc",
+      "srcRoute": "/course/admin/login",
+      "dataRoute": "/course/admin/login.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -170,11 +170,11 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/course/register": {
+    "/course/participant": {
       "routeType": "page",
       "response": "complete",
       "compute": "static",
-      "htmlSize": 10412,
+      "htmlSize": 10580,
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -187,8 +187,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/course/register",
-      "dataRoute": "/course/register.rsc",
+      "srcRoute": "/course/participant",
+      "dataRoute": "/course/participant.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -234,7 +234,7 @@
       "routeType": "page",
       "response": "complete",
       "compute": "static",
-      "htmlSize": 9050,
+      "htmlSize": 9173,
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -257,13 +257,97 @@
         "x-next-revalidated-tags",
         "x-next-revalidate-tag-token"
       ]
+    },
+    "/vts": {
+      "routeType": "page",
+      "response": "complete",
+      "compute": "static",
+      "htmlSize": 10006,
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/vts",
+      "dataRoute": "/vts.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/vts/admin/login": {
+      "routeType": "page",
+      "response": "complete",
+      "compute": "static",
+      "htmlSize": 9583,
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/vts/admin/login",
+      "dataRoute": "/vts/admin/login.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/vts/driver/login": {
+      "routeType": "page",
+      "response": "complete",
+      "compute": "static",
+      "htmlSize": 10782,
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/vts/driver/login",
+      "dataRoute": "/vts/driver/login.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
     }
   },
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "1d6304196b3b4599d5aa6bd04f2e949e",
-    "previewModeSigningKey": "f5a2f9ea2912dfddbedddd25da1101e4352c207e23c471ba4fa36d5e890a5b08",
-    "previewModeEncryptionKey": "e12e8d46eb9cf1a40d413dc55e16a3621ae5f9656abd11d1e60e38c6e9c5bcbb"
+    "previewModeId": "c34da418b5bed7bf02857fbee180056b",
+    "previewModeSigningKey": "34e7bf4e76595e1bc429cd00ae4a01595ccd6ff40bb4cf7cfdaec09092cad657",
+    "previewModeEncryptionKey": "db9cf5b36eb14f32d18646c17a5d0e708aae5bb862582da57e9bc41bc22d844f"
   }
 }

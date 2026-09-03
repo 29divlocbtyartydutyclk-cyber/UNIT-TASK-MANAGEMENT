@@ -2,8 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
-import { requireCourseParticipant } from "@/lib/course/auth/server";
-import { courseSubmitAttemptSchema } from "@/lib/course/validation";
+import { courseStartAttemptSchema, courseSubmitAttemptSchema } from "@/lib/course/validation";
 import {
   pickRandomQuestions,
   sanitizeQuestions,
@@ -24,18 +23,21 @@ export type StartCourseAttemptResult =
     }
   | { success: false; error: string };
 
-export async function startCourseAttempt(quizId: string): Promise<StartCourseAttemptResult> {
-  const session = await requireCourseParticipant();
+export async function startCourseAttempt(input: unknown): Promise<StartCourseAttemptResult> {
+  const parsed = courseStartAttemptSchema.safeParse(input);
+  if (!parsed.success) {
+    return { success: false, error: parsed.error.issues[0]?.message ?? "Invalid input" };
+  }
+  const { quizId, participantName, participantServiceNumber } = parsed.data;
 
   const quiz = await prisma.courseQuiz.findUnique({
     where: { id: quizId },
     include: { course: true, questions: true },
   });
   if (!quiz || !quiz.isPublished) return { success: false, error: "Quiz not found" };
-  if (quiz.course.category !== session.category) return { success: false, error: "Not available for your category" };
 
   const existing = await prisma.courseQuizAttempt.findFirst({
-    where: { quizId, userId: session.sub, status: "IN_PROGRESS" },
+    where: { quizId, participantServiceNumber, status: "IN_PROGRESS" },
     orderBy: { startedAt: "desc" },
   });
 
@@ -70,7 +72,8 @@ export async function startCourseAttempt(quizId: string): Promise<StartCourseAtt
   const attempt = await prisma.courseQuizAttempt.create({
     data: {
       quizId: quiz.id,
-      userId: session.sub,
+      participantName,
+      participantServiceNumber,
       status: "IN_PROGRESS",
       timeLimitSecondsSnapshot: quiz.timeLimitSeconds,
       questionsSnapshot: JSON.stringify(served),
@@ -88,14 +91,13 @@ export async function startCourseAttempt(quizId: string): Promise<StartCourseAtt
 }
 
 export async function submitCourseAttempt(input: unknown) {
-  const session = await requireCourseParticipant();
   const parsed = courseSubmitAttemptSchema.safeParse(input);
   if (!parsed.success) {
     return { success: false as const, error: parsed.error.issues[0]?.message ?? "Invalid input" };
   }
 
   const attempt = await prisma.courseQuizAttempt.findUnique({ where: { id: parsed.data.attemptId } });
-  if (!attempt || attempt.userId !== session.sub) {
+  if (!attempt) {
     return { success: false as const, error: "Attempt not found" };
   }
 

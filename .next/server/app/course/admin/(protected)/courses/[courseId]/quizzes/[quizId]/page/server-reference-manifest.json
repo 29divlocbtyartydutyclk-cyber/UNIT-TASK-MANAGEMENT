@@ -1,0 +1,71 @@
+{
+  "node": {
+    "006e653eda7e0c1cefb55f71327be46c8339c59d37": {
+      "workers": {
+        "app/course/admin/(protected)/courses/[courseId]/quizzes/[quizId]/page": {
+          "moduleId": 73556,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "courseLogout",
+      "filename": "app/actions/course-auth.ts"
+    },
+    "40347c1d4a306a0c500c9f27d60e025223cd8ad398": {
+      "workers": {
+        "app/course/admin/(protected)/courses/[courseId]/quizzes/[quizId]/page": {
+          "moduleId": 73556,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "courseLogin",
+      "filename": "app/actions/course-auth.ts"
+    },
+    "40ef2a156d3f5d443f1eed19d3cf20412fa5947bd4": {
+      "workers": {
+        "app/course/admin/(protected)/courses/[courseId]/quizzes/[quizId]/page": {
+          "moduleId": 73556,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "changeCourseAdminPassword",
+      "filename": "app/actions/course-auth.ts"
+    },
+    "4008661f48d645ce1cbc7f64e09548b6f609b289b5": {
+      "workers": {
+        "app/course/admin/(protected)/courses/[courseId]/quizzes/[quizId]/page": {
+          "moduleId": 73556,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "deleteCourseQuestion",
+      "filename": "app/actions/course-questions.ts"
+    },
+    "40402c30126bdc2dcadcc26d1fd59cfcbd09ff60c1": {
+      "workers": {
+        "app/course/admin/(protected)/courses/[courseId]/quizzes/[quizId]/page": {
+          "moduleId": 73556,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "createCourseQuestion",
+      "filename": "app/actions/course-questions.ts"
+    },
+    "60a506e0279135947a53d30c268da721ada9219577": {
+      "workers": {
+        "app/course/admin/(protected)/courses/[courseId]/quizzes/[quizId]/page": {
+          "moduleId": 73556,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "updateCourseQuestion",
+      "filename": "app/actions/course-questions.ts"
+    }
+  },
+  "edge": {}
+}

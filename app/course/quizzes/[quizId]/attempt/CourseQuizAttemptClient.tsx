@@ -1,12 +1,98 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, useTransition } from "react";
-import { submitCourseAttempt } from "@/app/actions/course-attempts";
+import { startCourseAttempt, submitCourseAttempt } from "@/app/actions/course-attempts";
 import type { SanitizedCourseQuestion } from "@/lib/course/quiz/randomize";
 
 const OPTION_LABELS = ["A", "B", "C", "D"] as const;
 
-export default function CourseQuizAttemptClient({
+type StartedState = {
+  attemptId: string;
+  timeLimitSeconds: number;
+  secondsElapsed: number;
+  questions: SanitizedCourseQuestion[];
+};
+
+export default function CourseQuizAttemptClient({ quizId, quizTitle }: { quizId: string; quizTitle: string }) {
+  const [participantName, setParticipantName] = useState("");
+  const [participantServiceNumber, setParticipantServiceNumber] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [isStarting, startStartTransition] = useTransition();
+  const [started, setStarted] = useState<StartedState | null>(null);
+
+  function onStart(e: React.FormEvent) {
+    e.preventDefault();
+    setError(null);
+    startStartTransition(async () => {
+      const result = await startCourseAttempt({ quizId, participantName, participantServiceNumber });
+      if (!result.success) {
+        setError(result.error);
+        return;
+      }
+      setStarted({
+        attemptId: result.attemptId,
+        timeLimitSeconds: result.timeLimitSeconds,
+        secondsElapsed: result.secondsElapsed,
+        questions: result.questions,
+      });
+    });
+  }
+
+  if (!started) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-parchment-50 px-4">
+        <form onSubmit={onStart} className="w-full max-w-sm bg-white rounded-lg shadow p-6 space-y-4">
+          <div>
+            <h1 className="text-lg font-semibold text-study-800">{quizTitle}</h1>
+            <p className="text-sm text-parchment-600 mt-1">
+              Enter your name and service number before starting - this is required so admin can identify your result.
+            </p>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-parchment-700 mb-1">Name</label>
+            <input
+              type="text"
+              value={participantName}
+              onChange={(e) => setParticipantName(e.target.value)}
+              className="w-full rounded border border-parchment-300 px-3 py-2 text-sm"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-parchment-700 mb-1">Service Number</label>
+            <input
+              type="text"
+              value={participantServiceNumber}
+              onChange={(e) => setParticipantServiceNumber(e.target.value)}
+              className="w-full rounded border border-parchment-300 px-3 py-2 text-sm"
+              required
+            />
+          </div>
+          {error && <p className="text-sm text-red-600">{error}</p>}
+          <button
+            type="submit"
+            disabled={isStarting}
+            className="w-full rounded bg-study-600 text-white py-2.5 font-medium hover:bg-study-700 disabled:opacity-60"
+          >
+            {isStarting ? "Starting..." : "Start Quiz"}
+          </button>
+        </form>
+      </div>
+    );
+  }
+
+  return (
+    <QuizInProgress
+      quizTitle={quizTitle}
+      attemptId={started.attemptId}
+      timeLimitSeconds={started.timeLimitSeconds}
+      secondsElapsed={started.secondsElapsed}
+      questions={started.questions}
+    />
+  );
+}
+
+function QuizInProgress({
   quizTitle,
   attemptId,
   timeLimitSeconds,

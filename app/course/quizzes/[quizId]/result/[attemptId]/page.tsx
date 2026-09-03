@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
-import { getCourseSession } from "@/lib/course/auth/server";
 import type { CourseQuestionSource } from "@/lib/course/quiz/randomize";
 import type { GradedCourseAnswer } from "@/lib/course/quiz/grading";
 
@@ -13,8 +12,6 @@ export default async function CourseQuizResultPage({
   params: Promise<{ quizId: string; attemptId: string }>;
 }) {
   const { quizId, attemptId } = await params;
-  const session = await getCourseSession();
-  if (!session) redirect("/course/login");
 
   const attempt = await prisma.courseQuizAttempt.findUnique({
     where: { id: attemptId },
@@ -22,7 +19,6 @@ export default async function CourseQuizResultPage({
   });
 
   if (!attempt || attempt.quizId !== quizId) notFound();
-  if (attempt.userId !== session.sub && session.role !== "ADMIN") notFound();
 
   if (attempt.status === "IN_PROGRESS" || !attempt.answers) {
     redirect(`/course/quizzes/${quizId}/attempt`);
@@ -44,7 +40,7 @@ export default async function CourseQuizResultPage({
             <p className="text-sm text-amber-600 mt-2">Time expired - your answers were auto-submitted.</p>
           )}
           <Link
-            href={`/course/courses/${attempt.quiz.course.id}`}
+            href={`/course/courses/${attempt.quiz.course.category}/${attempt.quiz.course.id}`}
             className="inline-block mt-4 text-sm text-study-700 hover:underline"
           >
             &larr; Back to course

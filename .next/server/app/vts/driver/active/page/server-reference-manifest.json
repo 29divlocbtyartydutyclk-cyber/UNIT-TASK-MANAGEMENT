@@ -1,0 +1,27 @@
+{
+  "node": {
+    "40dde8b5a8f86b5aada2116099b0f056d2ba3970a3": {
+      "workers": {
+        "app/vts/driver/active/page": {
+          "moduleId": 95161,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "pingVtsMovement",
+      "filename": "app/actions/vts-movements.ts"
+    },
+    "40a2eae8745a1f57a335b162004f92f24c93dce2d6": {
+      "workers": {
+        "app/vts/driver/active/page": {
+          "moduleId": 95161,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "endVtsMovement",
+      "filename": "app/actions/vts-movements.ts"
+    }
+  },
+  "edge": {}
+}

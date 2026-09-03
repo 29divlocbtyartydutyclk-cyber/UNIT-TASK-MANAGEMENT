@@ -1,0 +1,3 @@
+module.exports=[42951,a=>{"use strict";var b=a.i(37061);a.s([],46133),a.i(46133),a.s(["006e653eda7e0c1cefb55f71327be46c8339c59d37",()=>b.courseLogout,"40347c1d4a306a0c500c9f27d60e025223cd8ad398",()=>b.courseLogin,"40ef2a156d3f5d443f1eed19d3cf20412fa5947bd4",()=>b.changeCourseAdminPassword],42951)}];
+
+//# sourceMappingURL=_next-internal_server_app_course_admin_%28protected%29_settings_page_actions_1qes8f9.js.map

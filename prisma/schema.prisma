@@ -51,21 +51,10 @@ model Settings {
 // Namespaced separately from the Task Management models above; the two
 // features share this database and Next.js app but have independent auth.
 
-enum CourseRole {
-  ADMIN
-  PARTICIPANT
-}
-
 enum CourseCategory {
   OFFICER
   JCO
   OR
-}
-
-enum CourseApprovalStatus {
-  PENDING
-  APPROVED
-  REJECTED
 }
 
 enum CourseAttemptStatus {
@@ -74,24 +63,12 @@ enum CourseAttemptStatus {
   EXPIRED
 }
 
-model CourseUser {
-  id            String                @id @default(cuid())
-  serviceNumber String                @unique
-  passwordHash  String
-  name          String
-  rank          String?
-  role          CourseRole            @default(PARTICIPANT)
-  category      CourseCategory?
-  status        CourseApprovalStatus  @default(PENDING)
-  createdAt     DateTime              @default(now())
-  updatedAt     DateTime              @updatedAt
-
-  uploadedDocuments CourseDocument[]       @relation("CourseUploadedBy")
-  quizAttempts      CourseQuizAttempt[]
-  pushSubscriptions CoursePushSubscription[]
-
-  @@index([category])
-  @@index([status])
+// Singleton row holding the fixed admin account's password - there is no
+// participant account system, so this is the only credential in Course.
+model CourseSettings {
+  id                Int      @id @default(1)
+  adminPasswordHash String
+  updatedAt         DateTime @updatedAt
 }
 
 model Course {
@@ -111,17 +88,15 @@ model Course {
 }
 
 model CourseDocument {
-  id             String     @id @default(cuid())
+  id             String   @id @default(cuid())
   courseId       String
-  course         Course     @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  course         Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
   title          String
   storedFilePath String
   originalName   String
   mimeType       String
   sizeBytes      Int
-  uploadedById   String
-  uploadedBy     CourseUser @relation("CourseUploadedBy", fields: [uploadedById], references: [id])
-  uploadedAt     DateTime   @default(now())
+  uploadedAt     DateTime @default(now())
 
   @@index([courseId])
 }
@@ -161,32 +136,186 @@ model CourseQuestion {
 }
 
 model CourseQuizAttempt {
-  id                       String               @id @default(cuid())
+  id                       String              @id @default(cuid())
   quizId                   String
-  quiz                     CourseQuiz           @relation(fields: [quizId], references: [id], onDelete: Cascade)
-  userId                   String
-  user                     CourseUser           @relation(fields: [userId], references: [id], onDelete: Cascade)
-  status                   CourseAttemptStatus  @default(IN_PROGRESS)
+  quiz                     CourseQuiz          @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  participantName          String
+  participantServiceNumber String
+  status                   CourseAttemptStatus @default(IN_PROGRESS)
   timeLimitSecondsSnapshot Int
   questionsSnapshot        String
   answers                  String?
   score                    Int?
   totalQuestions           Int
-  startedAt                DateTime             @default(now())
+  startedAt                DateTime            @default(now())
   submittedAt              DateTime?
 
   @@index([quizId])
-  @@index([userId])
 }
 
 model CoursePushSubscription {
-  id        String     @id @default(cuid())
-  userId    String
-  user      CourseUser @relation(fields: [userId], references: [id], onDelete: Cascade)
-  endpoint  String     @unique
+  id        String         @id @default(cuid())
+  category  CourseCategory
+  endpoint  String         @unique
   p256dh    String
   auth      String
-  createdAt DateTime   @default(now())
+  createdAt DateTime       @default(now())
 
-  @@index([userId])
+  @@index([category])
+}
+
+// --- Vehicle Tracking System (VTS) models below ---
+// Namespaced separately (Vts prefix) from Task Management and E Pre Course.
+// Drivers and vehicles are independently registered with no permanent
+// assignment between them - the link exists only for the life of a
+// VtsMovement. Route points are temporary and deleted when a movement ends;
+// the VtsMovement row itself is kept afterward as a lightweight summary.
+
+enum VtsDriverStatus {
+  ACTIVE
+  DISABLED
+}
+
+enum VtsVehicleCategory {
+  JEEP
+  PICKUP
+  THREE_TON
+  OTHER
+}
+
+enum VtsVehicleStatus {
+  ACTIVE
+  DISABLED
+}
+
+enum VtsMovementStatus {
+  ACTIVE
+  ENDED
+}
+
+enum VtsAlertType {
+  MOVEMENT_STARTED
+  MOVEMENT_ENDED
+  SPEED_EXCEEDED
+  GPS_POOR
+  NETWORK_LOST
+  WEAK_SIGNAL
+  OFFLINE
+}
+
+model VtsSettings {
+  id                 Int      @id @default(1)
+  adminPasswordHash  String
+  driverPasswordHash String
+  updatedAt          DateTime @updatedAt
+}
+
+model VtsDriver {
+  id        String          @id @default(cuid())
+  name      String
+  serviceId String          @unique
+  phone     String?
+  status    VtsDriverStatus @default(ACTIVE)
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
+
+  movements VtsMovement[]
+
+  @@index([status])
+}
+
+model VtsVehicle {
+  id                 String             @id @default(cuid())
+  baNumber           String             @unique
+  category           VtsVehicleCategory
+  model              String?
+  fuelType           String?
+  mileageKmPerLiter  Float?
+  maxSpeedKmh        Int?
+  status             VtsVehicleStatus   @default(ACTIVE)
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+
+  movements VtsMovement[]
+
+  @@index([status])
+  @@index([category])
+}
+
+model VtsCategoryMileage {
+  category          VtsVehicleCategory @id
+  mileageKmPerLiter Float
+  maxSpeedKmh       Int?
+  updatedAt         DateTime           @updatedAt
+}
+
+model VtsMovement {
+  id                    String            @id @default(cuid())
+  driverId              String
+  driver                VtsDriver         @relation(fields: [driverId], references: [id])
+  driverNameSnapshot    String
+  driverServiceIdSnapshot String
+  vehicleId             String
+  vehicle                VtsVehicle       @relation(fields: [vehicleId], references: [id])
+  baNumberSnapshot       String
+  categorySnapshot       VtsVehicleCategory
+  status                 VtsMovementStatus @default(ACTIVE)
+
+  destination         String
+  purpose             String
+  startingOdometerKm  Float?
+  passengers          Int?
+  expectedDurationMin Int?
+  remarks             String?
+
+  mileageUsedKmPerLiter Float
+  maxSpeedKmh           Int?
+
+  distanceKm         Float    @default(0)
+  estimatedOilLiters Float    @default(0)
+
+  lastLat      Float?
+  lastLng      Float?
+  lastAccuracy Float?
+  lastSpeedKmh Float?
+  lastHeading  Float?
+  lastPingAt   DateTime?
+
+  startedAt DateTime  @default(now())
+  endedAt   DateTime?
+
+  routePoints VtsRoutePoint[]
+  alerts      VtsAlert[]
+
+  @@index([status])
+  @@index([driverId])
+  @@index([vehicleId])
+}
+
+model VtsRoutePoint {
+  id         String      @id @default(cuid())
+  movementId String
+  movement   VtsMovement @relation(fields: [movementId], references: [id], onDelete: Cascade)
+  lat        Float
+  lng        Float
+  accuracy   Float?
+  speedKmh   Float?
+  heading    Float?
+  recordedAt DateTime    @default(now())
+
+  @@index([movementId])
+}
+
+model VtsAlert {
+  id         String       @id @default(cuid())
+  type       VtsAlertType
+  movementId String?
+  movement   VtsMovement? @relation(fields: [movementId], references: [id], onDelete: SetNull)
+  baNumber   String?
+  driverName String?
+  message    String
+  createdAt  DateTime     @default(now())
+
+  @@index([createdAt])
+  @@index([movementId])
 }

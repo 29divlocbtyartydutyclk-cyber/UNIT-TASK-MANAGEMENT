@@ -5,18 +5,7 @@ import {
   COURSE_MIN_QUIZ_TIME_LIMIT_SECONDS,
 } from "@/lib/course/constants";
 
-export const courseRegisterSchema = z.object({
-  serviceNumber: z.string().trim().min(2, "Service number is required").max(40),
-  name: z.string().trim().min(1, "Name is required").max(120),
-  rank: z.string().trim().max(60).optional().transform((v) => (v ? v : undefined)),
-  category: z.enum(COURSE_CATEGORIES, { message: "Select your category" }),
-  password: z.string().min(6, "Password must be at least 6 characters").max(200),
-});
-
-export type CourseRegisterInput = z.infer<typeof courseRegisterSchema>;
-
 export const courseLoginSchema = z.object({
-  serviceNumber: z.string().trim().min(1, "Service number is required"),
   password: z.string().min(1, "Password is required"),
 });
 
@@ -90,3 +79,11 @@ export const courseSubmitAttemptSchema = z.object({
 });
 
 export type CourseSubmitAttemptInput = z.infer<typeof courseSubmitAttemptSchema>;
+
+export const courseStartAttemptSchema = z.object({
+  quizId: z.string().min(1),
+  participantName: z.string().trim().min(1, "Name is required").max(120),
+  participantServiceNumber: z.string().trim().min(1, "Service number is required").max(40),
+});
+
+export type CourseStartAttemptInput = z.infer<typeof courseStartAttemptSchema>;

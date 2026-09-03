@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Link from "next/link";
 import { login } from "@/app/actions/auth";
 import { ROLES } from "@/lib/auth/session";
 
@@ -67,6 +68,12 @@ export default function LoginPage() {
             {submitting ? "Signing in..." : "Sign In"}
           </button>
         </form>
+
+        <p className="mt-4 text-center text-sm">
+          <Link href="/" className="text-sand-300 hover:text-sand-100">
+            &larr; Back to app selection
+          </Link>
+        </p>
       </div>
     </div>
   );

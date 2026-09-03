@@ -36,7 +36,7 @@
       }
     }
   },
-  "/course/login": {
+  "/course/admin/login": {
     "hints": 64,
     "slots": {
       "children": {
@@ -46,8 +46,13 @@
             "hints": 96,
             "slots": {
               "children": {
-                "hints": 160,
-                "slots": null
+                "hints": 96,
+                "slots": {
+                  "children": {
+                    "hints": 160,
+                    "slots": null
+                  }
+                }
               }
             }
           }
@@ -55,26 +60,21 @@
       }
     }
   },
-  "/course/pending-approval": {
+  "/course": {
     "hints": 64,
     "slots": {
       "children": {
         "hints": 96,
         "slots": {
           "children": {
-            "hints": 96,
-            "slots": {
-              "children": {
-                "hints": 160,
-                "slots": null
-              }
-            }
+            "hints": 160,
+            "slots": null
           }
         }
       }
     }
   },
-  "/course/register": {
+  "/course/participant": {
     "hints": 64,
     "slots": {
       "children": {
@@ -113,6 +113,68 @@
       "children": {
         "hints": 160,
         "slots": null
+      }
+    }
+  },
+  "/vts/admin/login": {
+    "hints": 64,
+    "slots": {
+      "children": {
+        "hints": 96,
+        "slots": {
+          "children": {
+            "hints": 96,
+            "slots": {
+              "children": {
+                "hints": 96,
+                "slots": {
+                  "children": {
+                    "hints": 160,
+                    "slots": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/vts/driver/login": {
+    "hints": 64,
+    "slots": {
+      "children": {
+        "hints": 96,
+        "slots": {
+          "children": {
+            "hints": 96,
+            "slots": {
+              "children": {
+                "hints": 96,
+                "slots": {
+                  "children": {
+                    "hints": 160,
+                    "slots": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/vts": {
+    "hints": 64,
+    "slots": {
+      "children": {
+        "hints": 96,
+        "slots": {
+          "children": {
+            "hints": 160,
+            "slots": null
+          }
+        }
       }
     }
   }

@@ -422,7 +422,7 @@
           "codeHash": null
         },
         "app/vts/admin/(protected)/settings/page": {
-          "moduleId": 30999,
+          "moduleId": 53742,
           "async": false,
           "codeHash": null
         },
@@ -473,7 +473,7 @@
           "codeHash": null
         },
         "app/vts/admin/(protected)/settings/page": {
-          "moduleId": 30999,
+          "moduleId": 53742,
           "async": false,
           "codeHash": null
         },
@@ -529,7 +529,7 @@
           "codeHash": null
         },
         "app/vts/admin/(protected)/settings/page": {
-          "moduleId": 30999,
+          "moduleId": 53742,
           "async": false,
           "codeHash": null
         },
@@ -580,7 +580,7 @@
           "codeHash": null
         },
         "app/vts/admin/(protected)/settings/page": {
-          "moduleId": 30999,
+          "moduleId": 53742,
           "async": false,
           "codeHash": null
         },
@@ -631,7 +631,7 @@
           "codeHash": null
         },
         "app/vts/admin/(protected)/settings/page": {
-          "moduleId": 30999,
+          "moduleId": 53742,
           "async": false,
           "codeHash": null
         },
@@ -708,6 +708,28 @@
       },
       "filename": "app/actions/vts-mileage.ts",
       "exportedName": "upsertVtsCategoryMileage"
+    },
+    "40d5bb3432794b48c7e95b31b3064b13744ee3b9e6": {
+      "workers": {
+        "app/vts/admin/(protected)/settings/page": {
+          "moduleId": 53742,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/vts-push.ts",
+      "exportedName": "subscribeToVtsPush"
+    },
+    "408bc15e5e070c8440103a1e36be904aa3c9cd2b01": {
+      "workers": {
+        "app/vts/admin/(protected)/settings/page": {
+          "moduleId": 53742,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "filename": "app/actions/vts-push.ts",
+      "exportedName": "unsubscribeFromVtsPush"
     },
     "404fadb01c1e438855cdfd04a2c3322d767bce83f2": {
       "workers": {

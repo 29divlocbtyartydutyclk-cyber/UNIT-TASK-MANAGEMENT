@@ -1,3 +1,0 @@
-module.exports=[30999,a=>{"use strict";var b=a.i(79220);a.s([],77510),a.i(77510),a.s(["00f5bb61ea43a984d4d4736bd1d34c085a6a8f89a2",()=>b.vtsLogout,"401deb4b59d02ee31b0c2ca7cbb6c1760b8516a882",()=>b.vtsDriverLogin,"40390713b1f2ac4e8142797c6f0cca6bb9e3303026",()=>b.changeVtsDriverPassword,"40e4ba2d221cc86c320f96515822040bc447221e97",()=>b.changeVtsAdminPassword,"40ed857f427ff6fdb7700fbb4ec547250d16e57838",()=>b.vtsAdminLogin],30999)}];
-
-//# sourceMappingURL=_next-internal_server_app_vts_admin_%28protected%29_settings_page_actions_0q0zhsc.js.map

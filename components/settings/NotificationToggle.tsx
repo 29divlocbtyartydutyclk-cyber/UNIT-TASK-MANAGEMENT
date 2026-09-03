@@ -18,7 +18,7 @@ export function NotificationToggle() {
 
   useEffect(() => {
     if (typeof window === "undefined" || !("serviceWorker" in navigator) || !("PushManager" in window)) {
-      setStatus("unsupported");
+      queueMicrotask(() => setStatus("unsupported"));
       return;
     }
     navigator.serviceWorker

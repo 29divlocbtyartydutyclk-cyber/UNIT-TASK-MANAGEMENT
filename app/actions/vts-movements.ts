@@ -8,6 +8,7 @@ import { vtsStartMovementSchema, vtsPingSchema } from "@/lib/vts/validation";
 import { haversineMeters } from "@/lib/vts/geo";
 import { VTS_DEFAULT_MILEAGE_KM_PER_LITER, VTS_MIN_DISTANCE_METERS, type VtsCategoryValue } from "@/lib/vts/constants";
 import type { VtsActionResult } from "@/app/actions/vts-auth";
+import { sendVtsPushToAdmins } from "@/lib/vts/push";
 
 export async function startVtsMovement(input: unknown): Promise<VtsActionResult> {
   const session = await requireVtsDriver();
@@ -70,6 +71,12 @@ export async function startVtsMovement(input: unknown): Promise<VtsActionResult>
       message: `${session.driverName} started a movement with ${vehicle.baNumber} to ${parsed.data.destination}`,
     },
   });
+
+  sendVtsPushToAdmins({
+    title: "Movement Started",
+    body: `${session.driverName} started a movement with ${vehicle.baNumber} to ${parsed.data.destination}`,
+    url: "/vts/admin",
+  }).catch(() => {});
 
   revalidatePath("/vts/admin");
   redirect("/vts/driver/active");
@@ -153,6 +160,12 @@ export async function pingVtsMovement(input: unknown): Promise<VtsPingResult> {
         message: `${movement.baNumberSnapshot} exceeded ${movement.maxSpeedKmh} km/h (at ${Math.round(newSpeed)} km/h)`,
       },
     });
+
+    sendVtsPushToAdmins({
+      title: "Speed Alert",
+      body: `${movement.baNumberSnapshot} exceeded ${movement.maxSpeedKmh} km/h (at ${Math.round(newSpeed)} km/h)`,
+      url: "/vts/admin",
+    }).catch(() => {});
   }
 
   return { success: true, distanceKm, estimatedOilLiters };
@@ -180,6 +193,12 @@ export async function endVtsMovement(movementId: string): Promise<VtsActionResul
       message: `${movement.driverNameSnapshot} ended the movement with ${movement.baNumberSnapshot}`,
     },
   });
+
+  sendVtsPushToAdmins({
+    title: "Movement Ended",
+    body: `${movement.driverNameSnapshot} ended the movement with ${movement.baNumberSnapshot}`,
+    url: "/vts/admin",
+  }).catch(() => {});
 
   revalidatePath("/vts/admin");
   redirect(`/vts/driver/summary/${movement.id}`);

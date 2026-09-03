@@ -3,7 +3,7 @@
     "00f5bb61ea43a984d4d4736bd1d34c085a6a8f89a2": {
       "workers": {
         "app/vts/admin/(protected)/settings/page": {
-          "moduleId": 30999,
+          "moduleId": 53742,
           "async": false,
           "codeHash": null
         }
@@ -14,7 +14,7 @@
     "401deb4b59d02ee31b0c2ca7cbb6c1760b8516a882": {
       "workers": {
         "app/vts/admin/(protected)/settings/page": {
-          "moduleId": 30999,
+          "moduleId": 53742,
           "async": false,
           "codeHash": null
         }
@@ -25,7 +25,7 @@
     "40390713b1f2ac4e8142797c6f0cca6bb9e3303026": {
       "workers": {
         "app/vts/admin/(protected)/settings/page": {
-          "moduleId": 30999,
+          "moduleId": 53742,
           "async": false,
           "codeHash": null
         }
@@ -36,7 +36,7 @@
     "40e4ba2d221cc86c320f96515822040bc447221e97": {
       "workers": {
         "app/vts/admin/(protected)/settings/page": {
-          "moduleId": 30999,
+          "moduleId": 53742,
           "async": false,
           "codeHash": null
         }
@@ -47,13 +47,35 @@
     "40ed857f427ff6fdb7700fbb4ec547250d16e57838": {
       "workers": {
         "app/vts/admin/(protected)/settings/page": {
-          "moduleId": 30999,
+          "moduleId": 53742,
           "async": false,
           "codeHash": null
         }
       },
       "exportedName": "vtsAdminLogin",
       "filename": "app/actions/vts-auth.ts"
+    },
+    "40d5bb3432794b48c7e95b31b3064b13744ee3b9e6": {
+      "workers": {
+        "app/vts/admin/(protected)/settings/page": {
+          "moduleId": 53742,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "subscribeToVtsPush",
+      "filename": "app/actions/vts-push.ts"
+    },
+    "408bc15e5e070c8440103a1e36be904aa3c9cd2b01": {
+      "workers": {
+        "app/vts/admin/(protected)/settings/page": {
+          "moduleId": 53742,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "unsubscribeFromVtsPush",
+      "filename": "app/actions/vts-push.ts"
     }
   },
   "edge": {}

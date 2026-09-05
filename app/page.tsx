@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-study-700 via-combat-600 to-amber-600 px-4 py-10">
+    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-purple-800 to-red-800 px-4 py-10">
       <div className="w-full max-w-md space-y-8 text-center">
         <div className="text-white">
           <p className="text-lg font-semibold tracking-widest">WELCOME</p>
@@ -31,10 +31,10 @@ export default function Home() {
 
           <Link
             href="/vts"
-            className="block rounded-lg bg-amber-600 shadow-lg p-5 text-left hover:bg-amber-700 border border-white/20 transition"
+            className="block rounded-lg bg-red-700 shadow-lg p-5 text-left hover:bg-red-800 border border-white/20 transition"
           >
             <p className="font-semibold text-white">Vehicle Tracking System</p>
-            <p className="text-sm text-amber-100 mt-1">Live vehicle movement monitoring for drivers and admin.</p>
+            <p className="text-sm text-red-100 mt-1">Live vehicle movement monitoring for drivers and admin.</p>
           </Link>
         </div>
       </div>

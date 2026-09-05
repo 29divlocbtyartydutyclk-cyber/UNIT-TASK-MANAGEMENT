@@ -1,6 +1,6 @@
 {
-  "name": "Unit Task Management",
-  "short_name": "Unit Tasks",
+  "name": "29 Loc Mgt",
+  "short_name": "29 Loc Mgt",
   "description": "Unit task management and course preparation platform",
   "start_url": "/",
   "display": "standalone",

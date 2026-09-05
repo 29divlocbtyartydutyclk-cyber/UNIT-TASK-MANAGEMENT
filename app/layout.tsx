@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Unit Task Management",
-  description: "Unit daily task management dashboard",
+  title: "29 Loc Mgt",
+  description: "29 Division Locating Battery management app",
   manifest: "/manifest.json",
 };
 

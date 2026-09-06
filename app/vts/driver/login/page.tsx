@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/prisma";
 import DriverLoginForm from "./DriverLoginForm";
 
+export const dynamic = "force-dynamic";
+
 export default async function VtsDriverLoginPage() {
   const drivers = await prisma.vtsDriver.findMany({
     where: { status: "ACTIVE" },

@@ -1,5 +1,5 @@
 var R=require("../../../../../chunks/ssr/[turbopack]_runtime.js")("server/app/vts/admin/(protected)/map/page.js")
-R.c("server/chunks/ssr/[root-of-the-server]__0cbv1fc._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__0zy9j_u._.js")
 R.c("server/chunks/ssr/node_modules_next_dist_1n3w9lb._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__15ja6d7._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__038l5oq._.js")

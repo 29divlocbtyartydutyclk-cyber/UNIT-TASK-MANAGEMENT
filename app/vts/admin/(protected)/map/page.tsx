@@ -1,5 +1,5 @@
 import { getVtsFleetState, getVtsRoutePolylines } from "@/lib/vts/data";
-import LiveMapClient from "./LiveMapClient";
+import MapLoader from "./MapLoader";
 
 export default async function VtsAdminMapPage() {
   const vehicles = await getVtsFleetState();
@@ -9,7 +9,7 @@ export default async function VtsAdminMapPage() {
   return (
     <div className="space-y-4">
       <h1 className="text-2xl font-semibold text-amber-900">Live Map</h1>
-      <LiveMapClient initialVehicles={vehicles} initialRoutes={routes} />
+      <MapLoader initialVehicles={vehicles} initialRoutes={routes} />
     </div>
   );
 }

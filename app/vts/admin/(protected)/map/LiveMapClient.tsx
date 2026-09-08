@@ -19,6 +19,24 @@ const STATUS_HEX: Record<VtsComputedStatus, string> = {
   OFFLINE: "#ef4444",
 };
 
+function escapeHtml(s: string): string {
+  return s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
+}
+
+function popupHtml(v: VtsFleetVehicle): string {
+  const m = v.activeMovement!;
+  const rows = [
+    ["Driver", `${escapeHtml(m.driverName)} (${escapeHtml(m.serviceId)})`],
+    ["Status", v.computedStatus.replace("_", " ")],
+    ["Speed", m.lastSpeedKmh != null ? `${Math.round(m.lastSpeedKmh)} km/h` : "-"],
+    ["Last update", formatAgo(m.lastPingAt)],
+    ["Destination", escapeHtml(m.destination)],
+  ];
+  if (m.driverPhone) rows.splice(1, 0, ["Phone", escapeHtml(m.driverPhone)]);
+  const rowsHtml = rows.map(([label, value]) => `<div style="display:flex;justify-content:space-between;gap:12px;"><span style="color:#78716c;">${label}</span><span style="font-weight:600;">${value}</span></div>`).join("");
+  return `<div style="min-width:180px;font-size:13px;line-height:1.5;"><p style="font-weight:700;font-size:15px;margin:0 0 4px;">${escapeHtml(v.baNumber)}</p>${rowsHtml}</div>`;
+}
+
 export default function LiveMapClient({
   initialVehicles,
   initialRoutes,
@@ -76,6 +94,13 @@ export default function LiveMapClient({
         marker.setStyle({ fillColor: color });
       }
       marker.bindTooltip(`${v.baNumber} - ${v.computedStatus.replace("_", " ")}`, { permanent: false });
+
+      const popup = marker.getPopup();
+      if (popup) {
+        popup.setContent(popupHtml(v));
+      } else {
+        marker.bindPopup(popupHtml(v));
+      }
 
       const points = routes[m.id];
       if (points && points.length > 1) {

@@ -1,12 +1,12 @@
 [
   {
     "route": "/vts/admin/map",
-    "firstLoadUncompressedJsBytes": 616898,
+    "firstLoadUncompressedJsBytes": 617077,
     "firstLoadChunkPaths": [
       ".next\\static\\chunks\\2yae--sg5qgbf.js",
       ".next\\static\\chunks\\0axdrs6tow-4n.js",
       ".next\\static\\chunks\\2hmu4fn-n1ykt.js",
-      ".next\\static\\chunks\\26xo9yoyfh8i9.js",
+      ".next\\static\\chunks\\2iwfn-bolzl9a.js",
       ".next\\static\\chunks\\3yfl9fgvivx3-.js",
       ".next\\static\\chunks\\0fy4h0ngk1igg.js",
       ".next\\static\\chunks\\15y6kvul1oix-.js",

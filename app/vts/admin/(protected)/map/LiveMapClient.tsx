@@ -30,6 +30,7 @@ export default function LiveMapClient({
   const mapRef = useRef<L.Map | null>(null);
   const markersRef = useRef<Record<string, L.CircleMarker>>({});
   const polylinesRef = useRef<Record<string, L.Polyline>>({});
+  const hasFitBoundsRef = useRef(false);
 
   const [vehicles, setVehicles] = useState<VtsFleetVehicle[]>(initialVehicles);
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -101,6 +102,12 @@ export default function LiveMapClient({
         polylinesRef.current[id].remove();
         delete polylinesRef.current[id];
       }
+    }
+
+    if (!hasFitBoundsRef.current && seenMarkerIds.size > 0) {
+      const positions = Object.values(markersRef.current).map((m) => m.getLatLng());
+      map.fitBounds(L.latLngBounds(positions), { padding: [40, 40], maxZoom: 15 });
+      hasFitBoundsRef.current = true;
     }
   }
 
